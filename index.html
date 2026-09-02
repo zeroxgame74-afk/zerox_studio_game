@@ -8,25 +8,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Ardakan:wght@300;400;700;900&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Estedad:wght@300;400;700;900&display=swap" rel="stylesheet" />
     <style>
-        /* ===== RESET & BASE ===== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
-
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0a0c10;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, #2a3a5e, #6a8abe);
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(180deg, #4a6a8e, #8ab8ff);
         }
 
         body {
@@ -38,12 +23,8 @@
         }
 
         /* ===== فونت‌ها ===== */
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,
+        /* تیترها و عناوین: استعداد */
+        h1, h2, h3, h4, h5, h6,
         .logo,
         .section-title,
         .slide-content h1,
@@ -60,26 +41,11 @@
             font-family: 'Estedad', 'Ardakan', sans-serif !important;
         }
 
-        body,
-        p,
-        span,
-        div,
-        a,
-        button,
-        input,
-        textarea,
-        li,
-        .meta,
-        .genre,
-        .status,
-        .card-info,
-        .slide-content p,
-        .detail-section p,
-        .feature-item p,
-        .footer-copy,
-        .studio-bio p,
-        .footer-nav a,
-        .social-icons i {
+        /* متن‌ها و بقیه: اردکان */
+        body, p, span, div, a, button, input, textarea, li,
+        .meta, .genre, .status, .card-info, .slide-content p,
+        .detail-section p, .feature-item p, .footer-copy,
+        .studio-bio p, .footer-nav a, .social-icons i {
             font-family: 'Ardakan', sans-serif !important;
         }
 
@@ -96,9 +62,6 @@
             --glow-blue: rgba(160, 200, 255, 0.06);
             --glow-white: rgba(255, 255, 255, 0.04);
             --shadow-card: 0 10px 40px rgba(0, 0, 0, 0.7);
-            --gradient-gold: linear-gradient(135deg, #f0e6c8, #d4c8a8, #f0e6c8);
-            --gradient-silver: linear-gradient(135deg, #e8ecf5, #b8c4d8, #e8ecf5);
-            --gradient-blue: linear-gradient(135deg, #4a7abe, #8ab8ff, #4a7abe);
         }
 
         html {
@@ -111,38 +74,19 @@
             padding: 0 2rem;
         }
 
-        /* ===== ذرات پس‌زمینه ===== */
-        #particles-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            pointer-events: none;
-        }
-
         /* ===== هدر ===== */
         header {
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 1rem 2rem;
-            background: rgba(10, 12, 16, 0.7);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            background: rgba(10, 12, 16, 0.88);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
             border-bottom: 1px solid var(--border-subtle);
-            position: fixed;
+            position: sticky;
             top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        header.scrolled {
-            background: rgba(10, 12, 16, 0.95);
-            box-shadow: 0 4px 40px rgba(0, 0, 0, 0.6);
-            padding: 0.6rem 2rem;
+            z-index: 100;
         }
 
         .logo {
@@ -152,25 +96,18 @@
             text-decoration: none;
             cursor: pointer;
             font-family: 'Estedad', 'Ardakan', sans-serif !important;
-            background: linear-gradient(135deg, #ffffff 20%, #8ab8ff 80%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            position: relative;
-            z-index: 2;
+            letter-spacing: 0.5px;
+            text-shadow: 0 0 40px rgba(255, 255, 255, 0.03);
         }
         .logo span {
             font-weight: 300;
             color: var(--text-silver);
-            -webkit-text-fill-color: var(--text-silver);
             font-family: 'Ardakan', sans-serif !important;
         }
 
         nav {
             display: flex;
             gap: 2.5rem;
-            position: relative;
-            z-index: 2;
         }
         nav a {
             color: var(--text-silver);
@@ -188,11 +125,10 @@
             bottom: -4px;
             right: 0;
             width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, rgba(200, 220, 255, 0.6), #8ab8ff);
+            height: 1.5px;
+            background: linear-gradient(90deg, rgba(200, 220, 255, 0.6), #fff);
             transition: 0.3s ease;
             border-radius: 2px;
-            box-shadow: 0 0 20px rgba(138, 184, 255, 0.3);
         }
         nav a:hover {
             color: #fff;
@@ -205,8 +141,6 @@
             display: flex;
             gap: 1.5rem;
             align-items: center;
-            position: relative;
-            z-index: 2;
         }
         .header-icons i {
             font-size: 1.2rem;
@@ -217,8 +151,7 @@
         }
         .header-icons i:hover {
             color: #fff;
-            text-shadow: 0 0 30px rgba(138, 184, 255, 0.2);
-            transform: scale(1.1);
+            text-shadow: 0 0 30px rgba(200, 220, 255, 0.15);
         }
 
         .menu-toggle {
@@ -230,14 +163,13 @@
             cursor: pointer;
         }
 
-        /* ===== اسلایدر ===== */
+        /* ===== اسلایدر (تک اسلاید) ===== */
         .hero-slider {
             position: relative;
             width: 100%;
-            height: 100vh;
+            height: 88vh;
             overflow: hidden;
             margin-bottom: 4rem;
-            margin-top: 0;
         }
 
         .slide {
@@ -254,186 +186,121 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: brightness(0.25) saturate(0.7) contrast(1.2);
-            transform: scale(1.1);
-            animation: zoomIn 8s ease-out forwards;
-        }
-
-        @keyframes zoomIn {
-            0% {
-                transform: scale(1.1);
-            }
-            100% {
-                transform: scale(1);
-            }
+            filter: brightness(0.28) saturate(0.8) contrast(1.15);
         }
 
         .slide-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(180deg, rgba(10, 12, 16, 0.1) 0%, rgba(10, 12, 16, 0.9) 100%);
+            background: linear-gradient(180deg, rgba(10, 12, 16, 0.15) 0%, rgba(10, 12, 16, 0.88) 100%);
             z-index: 1;
         }
 
         .slide-content {
             position: absolute;
-            bottom: 22%;
+            bottom: 18%;
             right: 8%;
             z-index: 3;
-            max-width: 700px;
+            max-width: 650px;
         }
         .slide-content {
-            animation: fadeUp 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation: fadeUp 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
         @keyframes fadeUp {
             0% {
                 opacity: 0;
-                transform: translateY(60px) scale(0.98);
+                transform: translateY(50px);
             }
             100% {
                 opacity: 1;
-                transform: translateY(0) scale(1);
+                transform: translateY(0);
             }
         }
 
         .slide-content h1 {
-            font-size: 5rem;
+            font-size: 4.5rem;
             font-weight: 900;
             margin-bottom: 0.2rem;
             font-family: 'Estedad', 'Ardakan', sans-serif !important;
-            background: linear-gradient(135deg, #ffffff 20%, #b8ccf0 50%, #8ab8ff 80%);
+            background: linear-gradient(135deg, #ffffff 30%, #b8ccf0 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            letter-spacing: -1px;
-            line-height: 1.1;
-            text-shadow: none;
-            animation: shimmer 3s ease-in-out infinite;
-            background-size: 200% 200%;
+            letter-spacing: 0px;
         }
-
-        @keyframes shimmer {
-            0%,
-            100% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-        }
-
         .slide-content .genre {
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: var(--text-silver);
             margin-bottom: 0.6rem;
             display: flex;
-            gap: 0.8rem;
+            gap: 0.5rem;
             align-items: center;
             font-family: 'Ardakan', sans-serif !important;
-            opacity: 0.8;
         }
         .slide-content .genre i {
             margin-left: 0.3rem;
-            color: rgba(138, 184, 255, 0.7);
+            color: rgba(180, 210, 255, 0.7);
         }
         .slide-content p {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             color: #c8d2e0;
             margin-bottom: 1.5rem;
-            max-width: 520px;
+            max-width: 500px;
             font-family: 'Ardakan', sans-serif !important;
-            opacity: 0.85;
-            line-height: 1.9;
+            opacity: 0.9;
         }
         .slide-content .status {
             display: inline-block;
-            background: rgba(138, 184, 255, 0.08);
-            border: 1px solid rgba(138, 184, 255, 0.12);
-            padding: 0.3rem 1.6rem;
+            background: rgba(200, 220, 255, 0.06);
+            border: 1px solid rgba(200, 220, 255, 0.1);
+            padding: 0.3rem 1.4rem;
             border-radius: 30px;
             font-size: 0.85rem;
             color: var(--text-silver);
-            margin-bottom: 1.8rem;
+            margin-bottom: 1.5rem;
             font-family: 'Ardakan', sans-serif !important;
-            backdrop-filter: blur(4px);
         }
 
-        /* ===== دکمه با افکت ریپل ===== */
         .btn {
             display: inline-block;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.04), rgba(138, 184, 255, 0.04));
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             color: #fff;
-            padding: 0.9rem 3.5rem;
-            font-size: 1rem;
+            padding: 0.85rem 3rem;
+            font-size: 0.95rem;
             font-weight: 500;
             transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             text-decoration: none;
-            border-radius: 8px;
+            border-radius: 6px;
             backdrop-filter: blur(4px);
             cursor: pointer;
             font-family: 'Estedad', 'Ardakan', sans-serif !important;
             letter-spacing: 0.5px;
-            position: relative;
-            overflow: hidden;
-        }
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(138, 184, 255, 0.15);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-        .btn:hover::before {
-            width: 300px;
-            height: 300px;
         }
         .btn:hover {
-            border-color: rgba(138, 184, 255, 0.3);
-            transform: scale(1.05) translateY(-2px);
-            box-shadow: 0 10px 60px rgba(138, 184, 255, 0.06), inset 0 0 60px rgba(138, 184, 255, 0.02);
-            background: rgba(138, 184, 255, 0.06);
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(200, 220, 255, 0.3);
+            transform: scale(1.04);
+            box-shadow: 0 0 60px rgba(200, 220, 255, 0.04);
         }
 
-        /* ===== بخش‌ها با انیمیشن ظهور ===== */
+        /* ===== بخش‌ها ===== */
         .section-title {
-            font-size: 2.8rem;
-            font-weight: 900;
+            font-size: 2.4rem;
+            font-weight: 700;
             margin-bottom: 2.5rem;
-            border-right: 4px solid rgba(138, 184, 255, 0.2);
-            padding-right: 1.5rem;
+            border-right: 3px solid rgba(200, 220, 255, 0.15);
+            padding-right: 1.2rem;
             font-family: 'Estedad', 'Ardakan', sans-serif !important;
-            background: linear-gradient(135deg, #f0f3fa 30%, #8ab8ff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #f0f3fa;
             letter-spacing: 0.5px;
-            opacity: 0;
-            transform: translateX(-20px);
-            animation: slideInRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        @keyframes slideInRight {
-            0% {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        /* ===== کارت‌های بازی با افکت 3D Tilt ===== */
+        /* ===== کارت‌های بازی ===== */
         .games-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
             gap: 2.5rem;
             margin: 3rem 0 4rem;
         }
@@ -441,75 +308,35 @@
         .game-card {
             position: relative;
             background: var(--bg-card);
-            border-radius: 12px;
+            border-radius: 10px;
             overflow: hidden;
             transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
             border: 1px solid var(--border-subtle);
             cursor: pointer;
-            transform-style: preserve-3d;
-            perspective: 800px;
-            opacity: 0;
-            animation: cardAppear 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
-
-        .game-card:nth-child(1) {
-            animation-delay: 0.1s;
-        }
-        .game-card:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-        .game-card:nth-child(3) {
-            animation-delay: 0.3s;
-        }
-
-        @keyframes cardAppear {
-            0% {
-                opacity: 0;
-                transform: translateY(40px) scale(0.96);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
-        .game-card::before {
-            content: '';
-            position: absolute;
-            inset: -1px;
-            border-radius: 12px;
-            padding: 1px;
-            background: linear-gradient(135deg, rgba(138, 184, 255, 0.1), rgba(255, 255, 255, 0.02));
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            pointer-events: none;
-            z-index: 2;
-        }
-
         .game-card:hover {
-            transform: translateY(-10px) scale(1.02) rotateX(2deg) rotateY(-2deg);
-            border-color: rgba(138, 184, 255, 0.15);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 0 0 60px rgba(138, 184, 255, 0.03);
+            transform: translateY(-6px) scale(1.015);
+            border-color: rgba(200, 220, 255, 0.15);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 40px rgba(200, 220, 255, 0.03);
         }
 
         .game-card img {
             width: 100%;
-            height: 250px;
+            height: 240px;
             object-fit: cover;
-            transition: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .game-card:hover img {
-            transform: scale(1.08);
+            transform: scale(1.06);
         }
 
         .game-card .card-info {
             padding: 1.2rem 1.5rem 1.8rem;
             position: relative;
-            background: linear-gradient(0deg, var(--bg-card) 40%, transparent);
+            background: linear-gradient(0deg, var(--bg-card) 50%, transparent);
         }
         .game-card h3 {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 700;
             margin-bottom: 0.3rem;
             font-family: 'Estedad', 'Ardakan', sans-serif !important;
@@ -525,20 +352,20 @@
         }
         .game-card .meta i {
             margin-left: 0.3rem;
-            color: rgba(138, 184, 255, 0.4);
+            color: rgba(200, 220, 255, 0.4);
         }
         .game-card .card-arrow {
             position: absolute;
             left: 1.5rem;
             bottom: 1.2rem;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             color: var(--text-muted);
-            transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .game-card:hover .card-arrow {
-            color: #8ab8ff;
-            transform: translateX(-12px) scale(1.1);
-            text-shadow: 0 0 40px rgba(138, 184, 255, 0.2);
+            color: #fff;
+            transform: translateX(-8px);
+            text-shadow: 0 0 30px rgba(200, 220, 255, 0.1);
         }
 
         /* ===== بازی ویژه ===== */
@@ -547,60 +374,43 @@
             gap: 3rem;
             align-items: center;
             background: var(--bg-card);
-            border-radius: 16px;
+            border-radius: 12px;
             padding: 0;
             overflow: hidden;
             margin: 3rem 0 4rem;
             border: 1px solid var(--border-subtle);
             cursor: pointer;
-            transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-            opacity: 0;
-            animation: cardAppear 0.8s 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .featured-game:hover {
-            border-color: rgba(138, 184, 255, 0.12);
-            box-shadow: 0 0 80px rgba(138, 184, 255, 0.02);
-            transform: translateY(-4px);
+            border-color: rgba(200, 220, 255, 0.12);
+            box-shadow: 0 0 50px rgba(200, 220, 255, 0.02);
         }
         .featured-game .art {
             flex: 1.2;
-            min-height: 380px;
+            min-height: 340px;
             background-size: cover;
             background-position: center;
-            transition: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-        }
-        .featured-game .art::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(90deg, rgba(10, 12, 16, 0.8) 0%, transparent 100%);
+            transition: 0.6s;
         }
         .featured-game:hover .art {
-            transform: scale(1.03);
+            transform: scale(1.02);
         }
         .featured-game .info {
             flex: 1;
             padding: 2.5rem 3rem;
-            position: relative;
-            z-index: 2;
         }
         .featured-game .info h2 {
-            font-size: 3rem;
-            font-weight: 900;
+            font-size: 2.8rem;
+            font-weight: 700;
             margin-bottom: 0.3rem;
             font-family: 'Estedad', 'Ardakan', sans-serif !important;
-            background: linear-gradient(135deg, #f0f3fa 30%, #8ab8ff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #f0f3fa;
         }
         .featured-game .info p {
             color: #c8d2e0;
             margin-bottom: 1rem;
             font-family: 'Ardakan', sans-serif !important;
-            font-size: 1.05rem;
-            opacity: 0.85;
         }
         .featured-game .info .meta {
             color: var(--text-silver);
@@ -612,16 +422,16 @@
             font-family: 'Ardakan', sans-serif !important;
         }
         .featured-game .info .meta i {
-            color: rgba(138, 184, 255, 0.4);
+            color: rgba(200, 220, 255, 0.4);
             margin-left: 0.4rem;
         }
 
         .btn-outline {
             background: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             color: #fff;
-            padding: 0.7rem 2.2rem;
-            border-radius: 8px;
+            padding: 0.6rem 2rem;
+            border-radius: 6px;
             transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             display: inline-block;
             text-decoration: none;
@@ -629,60 +439,28 @@
             font-family: 'Estedad', 'Ardakan', sans-serif !important;
             font-weight: 400;
             letter-spacing: 0.3px;
-            position: relative;
-            overflow: hidden;
-        }
-        .btn-outline::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(138, 184, 255, 0.05), transparent);
-            opacity: 0;
-            transition: 0.4s;
-        }
-        .btn-outline:hover::before {
-            opacity: 1;
         }
         .btn-outline:hover {
-            background: rgba(138, 184, 255, 0.04);
-            border-color: rgba(138, 184, 255, 0.2);
-            box-shadow: 0 0 50px rgba(138, 184, 255, 0.03);
-            transform: scale(1.03) translateY(-2px);
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(200, 220, 255, 0.25);
+            box-shadow: 0 0 40px rgba(200, 220, 255, 0.03);
+            transform: scale(1.02);
         }
 
         /* ===== استودیو ===== */
         .studio-bio {
             background: var(--bg-card);
-            border-radius: 16px;
-            padding: 4rem 3rem;
+            border-radius: 12px;
+            padding: 3.5rem 2.5rem;
             margin: 4rem 0 2rem;
             border: 1px solid var(--border-subtle);
             text-align: center;
-            position: relative;
-            overflow: hidden;
-            opacity: 0;
-            animation: cardAppear 0.8s 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-        .studio-bio::before {
-            content: '';
-            position: absolute;
-            inset: -1px;
-            border-radius: 16px;
-            padding: 1px;
-            background: linear-gradient(135deg, rgba(138, 184, 255, 0.05), transparent, rgba(138, 184, 255, 0.05));
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            pointer-events: none;
         }
         .studio-bio h2 {
-            font-size: 3.5rem;
-            font-weight: 900;
+            font-size: 3rem;
+            font-weight: 700;
             font-family: 'Estedad', 'Ardakan', sans-serif !important;
-            background: linear-gradient(135deg, #f0f3fa 20%, #8ab8ff 80%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #f0f3fa;
             letter-spacing: 1px;
         }
         .studio-bio p {
@@ -690,8 +468,6 @@
             margin: 1.2rem auto;
             color: var(--text-silver);
             font-family: 'Ardakan', sans-serif !important;
-            font-size: 1.05rem;
-            opacity: 0.8;
         }
 
         /* ===== فوتر ===== */
@@ -700,7 +476,6 @@
             border-top: 1px solid var(--border-subtle);
             padding: 3rem 2rem 1.5rem;
             margin-top: 4rem;
-            position: relative;
         }
         .footer-content {
             display: flex;
@@ -722,39 +497,24 @@
             transition: 0.3s;
             cursor: pointer;
             font-family: 'Estedad', 'Ardakan', sans-serif !important;
-            position: relative;
-        }
-        .footer-nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            right: 0;
-            width: 0;
-            height: 1px;
-            background: #8ab8ff;
-            transition: 0.3s;
         }
         .footer-nav a:hover {
             color: #fff;
-        }
-        .footer-nav a:hover::after {
-            width: 100%;
         }
         .social-icons {
             display: flex;
             gap: 1.2rem;
         }
         .social-icons i {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             color: #5a6a7e;
-            transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: 0.3s;
             cursor: pointer;
             font-family: 'Ardakan', sans-serif !important;
         }
         .social-icons i:hover {
-            color: #8ab8ff;
-            text-shadow: 0 0 40px rgba(138, 184, 255, 0.15);
-            transform: translateY(-4px) scale(1.1);
+            color: #fff;
+            text-shadow: 0 0 30px rgba(200, 220, 255, 0.1);
         }
         .footer-copy {
             text-align: center;
@@ -765,7 +525,7 @@
             font-family: 'Ardakan', sans-serif !important;
         }
 
-        /* ===== صفحه اختصاصی ===== */
+        /* ===== صفحه اختصاصی بازی ===== */
         .game-detail-page {
             display: none;
             padding: 2rem 0 4rem;
@@ -777,34 +537,30 @@
         .game-detail-hero {
             position: relative;
             width: 100%;
-            height: 75vh;
+            height: 70vh;
             overflow: hidden;
-            border-radius: 16px;
+            border-radius: 12px;
             margin-bottom: 3rem;
         }
         .game-detail-hero img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: brightness(0.28);
-            animation: zoomIn 6s ease-out forwards;
+            filter: brightness(0.3);
         }
         .game-detail-hero .hero-info {
             position: absolute;
-            bottom: 18%;
+            bottom: 15%;
             right: 8%;
             z-index: 2;
             max-width: 700px;
         }
         .game-detail-hero .hero-info h1 {
-            font-size: 4.8rem;
-            font-weight: 900;
+            font-size: 4.5rem;
+            font-weight: 700;
             margin-bottom: 0.3rem;
             font-family: 'Estedad', 'Ardakan', sans-serif !important;
-            background: linear-gradient(135deg, #f0f3fa 20%, #8ab8ff 80%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #f0f3fa;
         }
         .game-detail-hero .hero-info .meta-detail {
             display: flex;
@@ -817,109 +573,87 @@
         }
         .game-detail-hero .hero-info .meta-detail i {
             margin-left: 0.5rem;
-            color: rgba(138, 184, 255, 0.4);
+            color: rgba(200, 220, 255, 0.4);
         }
         .game-detail-hero .hero-info .status-badge {
             display: inline-block;
-            background: rgba(138, 184, 255, 0.06);
-            border: 1px solid rgba(138, 184, 255, 0.1);
-            padding: 0.4rem 1.8rem;
+            background: rgba(200, 220, 255, 0.06);
+            border: 1px solid rgba(200, 220, 255, 0.1);
+            padding: 0.4rem 1.5rem;
             border-radius: 30px;
             font-size: 0.9rem;
             color: var(--text-silver);
             font-family: 'Ardakan', sans-serif !important;
-            backdrop-filter: blur(4px);
         }
 
         .detail-section {
             margin-bottom: 3rem;
-            opacity: 0;
-            animation: cardAppear 0.6s 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
         .detail-section h2 {
-            font-size: 2.2rem;
-            font-weight: 900;
+            font-size: 2rem;
+            font-weight: 700;
             margin-bottom: 1.5rem;
-            border-right: 4px solid rgba(138, 184, 255, 0.15);
-            padding-right: 1.2rem;
+            border-right: 3px solid rgba(200, 220, 255, 0.15);
+            padding-right: 1rem;
             font-family: 'Estedad', 'Ardakan', sans-serif !important;
-            background: linear-gradient(135deg, #f0f3fa 30%, #8ab8ff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #f0f3fa;
         }
         .detail-section p {
             color: #c8d2e0;
-            line-height: 2.2;
+            line-height: 2;
             max-width: 800px;
             white-space: pre-line;
             font-family: 'Ardakan', sans-serif !important;
-            font-size: 1.05rem;
         }
 
         .detail-gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1.5rem;
             margin-top: 1rem;
         }
         .detail-gallery img {
             width: 100%;
-            height: 220px;
+            height: 200px;
             object-fit: cover;
-            border-radius: 10px;
+            border-radius: 8px;
             border: 1px solid var(--border-subtle);
-            transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             cursor: pointer;
         }
         .detail-gallery img:hover {
-            transform: scale(1.06);
-            border-color: rgba(138, 184, 255, 0.15);
-            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5), 0 0 60px rgba(138, 184, 255, 0.02);
+            transform: scale(1.04);
+            border-color: rgba(200, 220, 255, 0.15);
+            box-shadow: 0 0 40px rgba(200, 220, 255, 0.03);
         }
 
         .detail-features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1.5rem;
             margin-top: 1rem;
         }
         .detail-features .feature-item {
             background: var(--bg-card);
-            padding: 2rem 1.5rem;
-            border-radius: 10px;
+            padding: 1.5rem;
+            border-radius: 8px;
             border: 1px solid var(--border-subtle);
             text-align: center;
-            transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-            overflow: hidden;
-        }
-        .detail-features .feature-item::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(138, 184, 255, 0.02), transparent);
-            opacity: 0;
-            transition: 0.4s;
-        }
-        .detail-features .feature-item:hover::before {
-            opacity: 1;
+            transition: 0.3s;
         }
         .detail-features .feature-item:hover {
-            border-color: rgba(138, 184, 255, 0.12);
-            transform: translateY(-4px);
+            border-color: rgba(200, 220, 255, 0.12);
         }
         .detail-features .feature-item i {
-            font-size: 2.5rem;
+            font-size: 2rem;
             color: var(--text-silver);
             margin-bottom: 0.5rem;
-            opacity: 0.5;
+            opacity: 0.6;
         }
         .detail-features .feature-item h4 {
             font-weight: 700;
             color: #e8ecf5;
             font-family: 'Estedad', 'Ardakan', sans-serif !important;
-            font-size: 1.1rem;
         }
         .detail-features .feature-item p {
             color: var(--text-muted);
@@ -935,19 +669,13 @@
             margin-top: 0.5rem;
         }
         .detail-tags span {
-            background: rgba(138, 184, 255, 0.04);
+            background: rgba(200, 220, 255, 0.05);
             border: 1px solid var(--border-subtle);
-            padding: 0.3rem 1.4rem;
+            padding: 0.3rem 1.2rem;
             border-radius: 20px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--text-silver);
             font-family: 'Ardakan', sans-serif !important;
-            transition: 0.3s;
-            cursor: default;
-        }
-        .detail-tags span:hover {
-            border-color: rgba(138, 184, 255, 0.15);
-            color: #fff;
         }
 
         .back-home-btn {
@@ -958,47 +686,36 @@
             transition: 0.3s;
             cursor: pointer;
             border: 1px solid var(--border-subtle);
-            padding: 0.5rem 1.8rem;
-            border-radius: 8px;
+            padding: 0.5rem 1.5rem;
+            border-radius: 6px;
             background: transparent;
             font-family: 'Estedad', 'Ardakan', sans-serif !important;
         }
         .back-home-btn:hover {
             color: #fff;
-            border-color: rgba(138, 184, 255, 0.2);
-            background: rgba(138, 184, 255, 0.03);
-            transform: translateX(-4px);
+            border-color: rgba(200, 220, 255, 0.2);
         }
 
         /* ===== ریسپانسیو ===== */
         @media (max-width: 992px) {
             .slide-content h1 {
-                font-size: 3.5rem;
+                font-size: 3.2rem;
             }
             .featured-game {
                 flex-direction: column;
             }
             .featured-game .art {
                 width: 100%;
-                min-height: 250px;
-            }
-            .featured-game .art::after {
-                background: linear-gradient(180deg, rgba(10, 12, 16, 0.3) 0%, rgba(10, 12, 16, 0.9) 100%);
+                min-height: 220px;
             }
             .featured-game .info {
                 padding: 2rem;
             }
             .game-detail-hero {
-                height: 55vh;
+                height: 50vh;
             }
             .game-detail-hero .hero-info h1 {
-                font-size: 3.5rem;
-            }
-            .studio-bio h2 {
-                font-size: 2.8rem;
-            }
-            .section-title {
-                font-size: 2.2rem;
+                font-size: 3.2rem;
             }
         }
 
@@ -1006,15 +723,14 @@
             nav {
                 display: none;
                 flex-direction: column;
-                background: rgba(10, 12, 16, 0.98);
-                backdrop-filter: blur(12px);
+                background: #0a0c10;
                 position: absolute;
-                top: 100%;
+                top: 70px;
                 right: 0;
                 width: 100%;
-                padding: 1.5rem 2rem;
+                padding: 1.5rem;
                 border-bottom: 1px solid var(--border-subtle);
-                gap: 1.2rem;
+                gap: 1rem;
             }
             nav.open {
                 display: flex;
@@ -1026,18 +742,15 @@
                 display: none;
             }
             .hero-slider {
-                height: 80vh;
+                height: 70vh;
             }
             .slide-content {
-                bottom: 15%;
+                bottom: 12%;
                 right: 5%;
-                max-width: 92%;
+                max-width: 90%;
             }
             .slide-content h1 {
-                font-size: 2.8rem;
-            }
-            .slide-content p {
-                font-size: 1rem;
+                font-size: 2.4rem;
             }
             .games-grid {
                 grid-template-columns: 1fr 1fr;
@@ -1045,7 +758,6 @@
             }
             .section-title {
                 font-size: 1.8rem;
-                padding-right: 1rem;
             }
             .footer-content {
                 flex-direction: column;
@@ -1053,20 +765,11 @@
                 align-items: center;
             }
             .game-detail-hero .hero-info h1 {
-                font-size: 2.8rem;
+                font-size: 2.4rem;
             }
             .game-detail-hero .hero-info {
                 right: 5%;
-                bottom: 12%;
-            }
-            .studio-bio {
-                padding: 2.5rem 1.5rem;
-            }
-            .studio-bio h2 {
-                font-size: 2.2rem;
-            }
-            .featured-game .info h2 {
-                font-size: 2.2rem;
+                bottom: 10%;
             }
         }
 
@@ -1075,34 +778,21 @@
                 grid-template-columns: 1fr;
             }
             .slide-content h1 {
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
             .btn {
-                padding: 0.7rem 2rem;
-                font-size: 0.9rem;
+                padding: 0.6rem 1.8rem;
             }
             .game-detail-hero {
-                height: 45vh;
-            }
-            .game-detail-hero .hero-info h1 {
-                font-size: 2.2rem;
-            }
-            .detail-features {
-                grid-template-columns: 1fr 1fr;
-            }
-            .detail-gallery {
-                grid-template-columns: 1fr;
+                height: 40vh;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- ===== ذرات پس‌زمینه ===== -->
-    <canvas id="particles-canvas"></canvas>
-
     <!-- ===== هدر ===== -->
-    <header id="mainHeader">
+    <header>
         <a class="logo" id="homeLogo">Zerox <span>games | original</span></a>
         <nav id="mainNav">
             <a class="nav-link" data-page="home">خانه</a>
@@ -1121,7 +811,7 @@
         <!-- ===== صفحه اصلی ===== -->
         <div id="page-home" class="page-content">
 
-            <!-- اسلایدر -->
+            <!-- اسلایدر (تک اسلاید) -->
             <section class="hero-slider" id="heroSlider">
                 <div class="slide active" data-index="0">
                     <img src="https://uploadkon.ir/uploads/dec602_26Negar-1788164380627.jpg" alt="SilentGears" class="slide-bg" />
@@ -1129,7 +819,7 @@
                     <div class="slide-content">
                         <h1>چرخ‌دنده‌ساکت</h1>
                         <div class="genre"><i class="fas fa-tag"></i> اکشن-ماجرایی • نقش‌آفرینی</div>
-                        <p>یک بازی پساآخرالزمانی با گیم‌پلی ریتم‌محور و داستانی عمیق که در ذهن شما می‌ماند...</p>
+                        <p>یک بازی پساآخرالزمانی با گیم‌پلی ریتم‌محور و داستانی عمیق...</p>
                         <span class="status"><i class="fas fa-clock"></i> در دست توسعه</span>
                         <button class="btn game-detail-btn" data-game="silent-gears">مشاهده بازی</button>
                     </div>
@@ -1165,7 +855,7 @@
                 <div class="studio-bio">
                     <h2>Zerox games | original</h2>
                     <p>ما در Zerox، مرزهای خلاقیت را جابه‌جا می‌کنیم. با تکیه بر هنر، فناوری و داستان‌سرایی، تجربه‌هایی می‌سازیم که در ذهن بازیکنان می‌مانند.</p>
-                    <button class="btn-outline" style="margin-top:1.5rem;">درباره Zerox <i class="fas fa-arrow-left"></i></button>
+                    <button class="btn-outline" style="margin-top:1rem;">درباره Zerox <i class="fas fa-arrow-left"></i></button>
                 </div>
             </div>
         </div>
@@ -1201,72 +891,6 @@
     <!-- ===== اسکریپت ===== -->
     <script>
         (function() {
-            // ===== ذرات =====
-            const canvas = document.getElementById('particles-canvas');
-            const ctx = canvas.getContext('2d');
-            let w, h;
-            let particles = [];
-
-            function resize() {
-                w = canvas.width = window.innerWidth;
-                h = canvas.height = window.innerHeight;
-            }
-            resize();
-            window.addEventListener('resize', resize);
-
-            class Particle {
-                constructor() {
-                    this.x = Math.random() * w;
-                    this.y = Math.random() * h;
-                    this.size = Math.random() * 2 + 0.5;
-                    this.speedX = (Math.random() - 0.5) * 0.3;
-                    this.speedY = (Math.random() - 0.5) * 0.3;
-                    this.opacity = Math.random() * 0.5 + 0.1;
-                }
-                update() {
-                    this.x += this.speedX;
-                    this.y += this.speedY;
-                    if (this.x < 0 || this.x > w) this.speedX *= -1;
-                    if (this.y < 0 || this.y > h) this.speedY *= -1;
-                }
-                draw() {
-                    ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                    ctx.fillStyle = `rgba(138, 184, 255, ${this.opacity})`;
-                    ctx.fill();
-                }
-            }
-
-            for (let i = 0; i < 120; i++) {
-                particles.push(new Particle());
-            }
-
-            function animateParticles() {
-                ctx.clearRect(0, 0, w, h);
-                particles.forEach(p => {
-                    p.update();
-                    p.draw();
-                });
-                // خطوط بین ذرات
-                for (let i = 0; i < particles.length; i++) {
-                    for (let j = i + 1; j < particles.length; j++) {
-                        const dx = particles[i].x - particles[j].x;
-                        const dy = particles[i].y - particles[j].y;
-                        const dist = Math.sqrt(dx * dx + dy * dy);
-                        if (dist < 150) {
-                            ctx.beginPath();
-                            ctx.moveTo(particles[i].x, particles[i].y);
-                            ctx.lineTo(particles[j].x, particles[j].y);
-                            ctx.strokeStyle = `rgba(138, 184, 255, ${0.04 * (1 - dist / 150)})`;
-                            ctx.lineWidth = 0.5;
-                            ctx.stroke();
-                        }
-                    }
-                }
-                requestAnimationFrame(animateParticles);
-            }
-            animateParticles();
-
             // ===== دیتا =====
             const gamesData = [{
                 id: 1,
@@ -1300,26 +924,15 @@
                 return gamesData.find(g => g.slug === slug);
             }
 
-            // ===== هدر اسکرول =====
-            const header = document.getElementById('mainHeader');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            });
-
             // ===== رندر کارت‌ها =====
             function renderGameCards() {
                 const grid = document.getElementById('gamesGrid');
                 if (!grid) return;
                 grid.innerHTML = '';
-                gamesData.forEach((game, index) => {
+                gamesData.forEach(game => {
                     const card = document.createElement('div');
                     card.className = 'game-card game-detail-btn';
                     card.dataset.game = game.slug;
-                    card.style.animationDelay = `${0.1 + index * 0.1}s`;
                     card.innerHTML = `
                         <img src="${game.cover}" alt="${game.persianName}" />
                         <div class="card-info">
@@ -1330,22 +943,6 @@
                         </div>
                     `;
                     grid.appendChild(card);
-
-                    // ===== افکت 3D Tilt با موس =====
-                    card.addEventListener('mousemove', function(e) {
-                        const rect = this.getBoundingClientRect();
-                        const x = e.clientX - rect.left;
-                        const y = e.clientY - rect.top;
-                        const centerX = rect.width / 2;
-                        const centerY = rect.height / 2;
-                        const rotateX = ((y - centerY) / centerY) * -6;
-                        const rotateY = ((x - centerX) / centerX) * 6;
-                        this.style.transform =
-                            `translateY(-10px) scale(1.02) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-                    });
-                    card.addEventListener('mouseleave', function() {
-                        this.style.transform = 'translateY(0) scale(1) rotateX(0deg) rotateY(0deg)';
-                    });
                 });
             }
 
@@ -1524,7 +1121,7 @@
             }
 
             init();
-            console.log('🔥 Zerox games | original - نسخه فوق‌خفن با ذرات و انیمیشن‌های 3D');
+            console.log('Zerox games | original - فونت‌های استعداد + اردکان | اسلایدر تک');
         })();
     </script>
 
