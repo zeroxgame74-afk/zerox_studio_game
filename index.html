@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ZER0X GAME · SilentGears</title>
 
-  <!-- فاویکون -->
+  <!-- ===== فاویکون جدید ===== -->
   <link rel="icon" type="image/png" sizes="32x32" href="https://uploadkon.ir/uploads/464903_26Negar-1788437644174.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="https://uploadkon.ir/uploads/464903_26Negar-1788437644174.png" />
   <link rel="apple-touch-icon" href="https://uploadkon.ir/uploads/464903_26Negar-1788437644174.png" />
@@ -88,14 +88,6 @@
     @keyframes shimmer {
       0% { background-position: -200% center; }
       100% { background-position: 200% center; }
-    }
-    @keyframes menuSlideIn {
-      from { opacity: 0; transform: translateX(100%); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-    @keyframes menuFadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
     }
 
     /* ========================================== */
@@ -182,100 +174,7 @@
       color: #fff; 
       transform: scale(1.2) rotate(15deg);
     }
-    .menu-mobile { 
-      display: none;
-      font-size: 1.4rem;
-    }
-
-    /* ========================================== */
-    /* ===== مودال منو (موبایل) ===== */
-    /* ========================================== */
-    .menu-modal {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.97);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      z-index: 2000;
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 3rem 2rem;
-      animation: menuFadeIn 0.4s ease;
-    }
-    .menu-modal.active {
-      display: flex;
-    }
-    .menu-modal .close-btn {
-      position: absolute;
-      top: 1.5rem;
-      left: 1.5rem;
-      font-size: 2rem;
-      color: #555;
-      cursor: pointer;
-      transition: 0.3s;
-      background: none;
-      border: none;
-    }
-    .menu-modal .close-btn:hover {
-      color: #fff;
-      transform: rotate(90deg);
-    }
-    .menu-modal .menu-items {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2.5rem;
-      animation: menuSlideIn 0.5s ease;
-    }
-    .menu-modal .menu-items a {
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: #666;
-      font-family: 'Estedad', 'Ardakan', sans-serif;
-      transition: 0.3s;
-      letter-spacing: 2px;
-      position: relative;
-    }
-    .menu-modal .menu-items a::after {
-      content: '';
-      position: absolute;
-      bottom: -6px;
-      right: 0;
-      width: 0;
-      height: 2px;
-      background: #fff;
-      transition: 0.3s;
-    }
-    .menu-modal .menu-items a:hover {
-      color: #fff;
-      transform: scale(1.05);
-    }
-    .menu-modal .menu-items a:hover::after {
-      width: 100%;
-    }
-    .menu-modal .menu-items a.active {
-      color: #fff;
-    }
-    .menu-modal .menu-items a.active::after {
-      width: 100%;
-    }
-    .menu-modal .menu-social {
-      margin-top: 4rem;
-      display: flex;
-      gap: 2rem;
-      color: #444;
-      font-size: 1.5rem;
-      animation: menuSlideIn 0.6s ease;
-    }
-    .menu-modal .menu-social a {
-      transition: 0.3s;
-    }
-    .menu-modal .menu-social a:hover {
-      color: #fff;
-      transform: translateY(-4px);
-    }
+    .menu-mobile { display: none; }
 
     /* ===== صفحات ===== */
     .page { display: none; padding-top: 70px; }
@@ -561,7 +460,7 @@
     }
 
     /* ========================================== */
-    /* ===== صفحه جستجو ===== */
+    /* ===== صفحه جستجو (بدون عکس) ===== */
     /* ========================================== */
     .search-page {
       padding: 4rem 0 5rem;
@@ -1078,35 +977,9 @@
     </nav>
     <div class="header-actions">
       <i class="fas fa-search" onclick="navigateTo('search')"></i>
-      <i class="fas fa-bars menu-mobile" onclick="openMenuModal()"></i>
+      <i class="fas fa-bars menu-mobile" onclick="toggleMobileMenu()"></i>
     </div>
   </header>
-
-  <!-- ===== مودال منو (موبایل) ===== -->
-  <div class="menu-modal" id="menuModal">
-    <button class="close-btn" onclick="closeMenuModal()">
-      <i class="fas fa-times"></i>
-    </button>
-    <div class="menu-items">
-      <a class="active" onclick="navigateTo('home'); closeMenuModal();">خانه</a>
-      <a onclick="scrollToGames(); closeMenuModal();">بازی‌ها</a>
-      <a onclick="navigateTo('about'); closeMenuModal();">درباره ما</a>
-    </div>
-    <div class="menu-social">
-      <a href="https://t.me/ZEROX_STUDIOS" target="_blank" rel="noopener noreferrer" aria-label="تلگرام">
-        <i class="fab fa-telegram"></i>
-      </a>
-      <a href="#" target="_blank" rel="noopener noreferrer" aria-label="توییتر">
-        <i class="fab fa-twitter"></i>
-      </a>
-      <a href="#" target="_blank" rel="noopener noreferrer" aria-label="یوتیوب">
-        <i class="fab fa-youtube"></i>
-      </a>
-      <a href="#" target="_blank" rel="noopener noreferrer" aria-label="اینستاگرام">
-        <i class="fab fa-instagram"></i>
-      </a>
-    </div>
-  </div>
 
   <!-- ===== صفحه خانه ===== -->
   <div class="page active" id="pageHome">
@@ -1175,7 +1048,7 @@
   </div>
 
   <!-- ========================================== -->
-  <!-- ===== صفحه جستجو ===== -->
+  <!-- ===== صفحه جستجو (بدون عکس) ===== -->
   <!-- ========================================== -->
   <div class="page" id="pageSearch">
     <div class="container search-page">
@@ -1311,16 +1184,6 @@
       }
     ];
 
-    // ===== مودال منو =====
-    function openMenuModal() {
-      document.getElementById('menuModal').classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeMenuModal() {
-      document.getElementById('menuModal').classList.remove('active');
-      document.body.style.overflow = '';
-    }
-
     // ===== تابع اسکرول به بخش بازی‌ها =====
     function scrollToGames() {
       document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -1329,11 +1192,6 @@
       document.querySelectorAll('.nav a').forEach(a => a.classList.remove('active'));
       document.querySelectorAll('.nav a')[0].classList.add('active');
       document.querySelectorAll('.nav a')[1].classList.remove('active');
-      
-      // بروزرسانی مودال
-      document.querySelectorAll('.menu-modal .menu-items a').forEach(a => a.classList.remove('active'));
-      document.querySelectorAll('.menu-modal .menu-items a')[0].classList.add('active');
-      document.querySelectorAll('.menu-modal .menu-items a')[1].classList.remove('active');
       
       setTimeout(() => {
         const gamesSection = document.getElementById('games-section');
@@ -1366,14 +1224,6 @@
         if (idx !== undefined) {
           document.querySelectorAll('.nav a')[idx].classList.add('active');
         }
-      }
-
-      // بروزرسانی مودال
-      document.querySelectorAll('.menu-modal .menu-items a').forEach(a => a.classList.remove('active'));
-      if (page === 'home') {
-        document.querySelectorAll('.menu-modal .menu-items a')[0].classList.add('active');
-      } else if (page === 'about') {
-        document.querySelectorAll('.menu-modal .menu-items a')[2].classList.add('active');
       }
 
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1429,9 +1279,23 @@
       `).join('');
     }
 
-    // ===== منو موبایل (قدیمی) - دیگر استفاده نمیشه =====
+    // ===== منو موبایل =====
     function toggleMobileMenu() {
-      // با مودال جدید جایگزین شده
+      const nav = document.getElementById('mainNav');
+      if (nav.style.display === 'flex') {
+        nav.style.display = 'none';
+      } else {
+        nav.style.display = 'flex';
+        nav.style.flexDirection = 'column';
+        nav.style.position = 'absolute';
+        nav.style.top = '100%';
+        nav.style.right = '0';
+        nav.style.left = '0';
+        nav.style.background = 'rgba(10,10,10,0.98)';
+        nav.style.padding = '2rem';
+        nav.style.gap = '1.5rem';
+        nav.style.borderBottom = '1px solid #1a1a1a';
+      }
     }
 
     // ===== هدر اسکرول =====
@@ -1464,7 +1328,6 @@
         nav.style.padding = '0';
         nav.style.gap = '2.2rem';
         nav.style.borderBottom = 'none';
-        closeMenuModal();
       } else {
         const nav = document.getElementById('mainNav');
         if (!nav.style.display || nav.style.display === 'flex') {
@@ -1475,4 +1338,4 @@
   </script>
 
 </body>
-  </html>
+</html>
