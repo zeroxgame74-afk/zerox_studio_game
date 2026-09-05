@@ -98,10 +98,6 @@
       from { opacity: 0; transform: translateX(50px); }
       to { opacity: 1; transform: translateX(0); }
     }
-    @keyframes pulseGlow {
-      0%, 100% { box-shadow: 0 0 20px rgba(255,255,255,0.02); }
-      50% { box-shadow: 0 0 40px rgba(255,255,255,0.06); }
-    }
 
     /* ========================================== */
     /* ===== HEADER ===== */
@@ -446,7 +442,7 @@
     }
     .game-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 2rem;
       margin-bottom: 4rem;
     }
@@ -787,170 +783,172 @@
     }
 
     /* ========================================== */
-    /* ===== کارت خرید استیم-استایل (به‌زودی) ===== */
+    /* ===== کارت خرید استیم-استایل (نسخه حرفه‌ای) ===== */
     /* ========================================== */
     .purchase-card {
-      background: #0f0f0f;
+      background: #0d0d0d;
       border: 1px solid #1a1a1a;
-      border-radius: 12px;
-      padding: 2rem;
+      border-radius: 8px;
+      padding: 1.5rem;
       margin: 2rem 0;
-      transition: 0.4s;
-      animation: scaleIn 0.8s ease;
+      transition: 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
     }
     .purchase-card:hover {
       border-color: #333;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.8);
     }
 
     .purchase-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 1.5rem;
-      padding-bottom: 1rem;
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.8rem;
       border-bottom: 1px solid #181818;
     }
     .purchase-logo {
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 900;
       letter-spacing: 2px;
       color: #fff;
-      font-family: 'Estedad', 'Ardakan', sans-serif;
+      font-family: 'Inter', 'Estedad', 'Ardakan', sans-serif;
     }
     .purchase-logo span {
       color: #555;
       font-weight: 300;
     }
     .purchase-badge {
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       color: #666;
       border: 1px solid #222;
-      padding: 0.2rem 1rem;
+      padding: 0.2rem 0.8rem;
       border-radius: 20px;
-      letter-spacing: 1px;
+      letter-spacing: 0.5px;
+      font-family: 'Inter', sans-serif;
     }
 
     .purchase-body {
-      display: grid;
-      grid-template-columns: 180px 1fr;
-      gap: 2rem;
-      align-items: start;
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
     }
     .purchase-cover {
-      width: 100%;
+      flex: 0 0 140px;
+      width: 140px;
       aspect-ratio: 16/9;
-      border-radius: 8px;
+      border-radius: 4px;
       overflow: hidden;
       border: 1px solid #1a1a1a;
+      background: #0a0a0a;
     }
     .purchase-cover img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
     }
 
+    .purchase-info {
+      flex: 1;
+      min-width: 0;
+    }
     .purchase-info h3 {
-      font-size: 1.6rem;
+      font-size: 1.3rem;
       font-weight: 800;
       color: #fff;
-      font-family: 'Estedad', 'Ardakan', sans-serif;
-      margin-bottom: 0.3rem;
+      font-family: 'Inter', 'Estedad', 'Ardakan', sans-serif;
+      margin-bottom: 0.2rem;
+      letter-spacing: -0.5px;
     }
     .purchase-desc {
       color: #888;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       font-weight: 300;
-      margin-bottom: 1.2rem;
-      line-height: 1.8;
+      margin-bottom: 0.8rem;
+      line-height: 1.6;
+      font-family: 'Inter', sans-serif;
     }
 
     .purchase-meta {
       display: flex;
-      gap: 1.2rem;
+      gap: 1rem;
       flex-wrap: wrap;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
     }
     .purchase-meta span {
       color: #666;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       font-weight: 300;
+      font-family: 'Inter', sans-serif;
     }
     .purchase-meta i {
       margin-left: 4px;
       color: #444;
+      font-size: 0.7rem;
     }
 
-    /* وضعیت به‌زودی */
     .purchase-status {
-      margin: 1rem 0 1.2rem;
-      padding: 1rem 1.2rem;
-      background: rgba(255, 255, 255, 0.02);
+      margin: 0.8rem 0 1rem;
+      padding: 0.8rem 1rem;
+      background: rgba(255,255,255,0.02);
       border: 1px solid #1a1a1a;
-      border-radius: 8px;
-      transition: 0.4s;
-    }
-    .purchase-status:hover {
-      border-color: #333;
-      background: rgba(255, 255, 255, 0.03);
+      border-radius: 6px;
     }
     .status-badge {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      padding: 0.3rem 1.2rem;
+      gap: 8px;
+      padding: 0.2rem 1rem;
       border: 1px solid #333;
       border-radius: 30px;
-      font-size: 0.85rem;
+      font-size: 0.75rem;
       color: #aaa;
-      letter-spacing: 1px;
-      background: rgba(255, 255, 255, 0.02);
-      backdrop-filter: blur(4px);
-      margin-bottom: 0.5rem;
+      letter-spacing: 0.5px;
+      background: rgba(255,255,255,0.02);
+      font-family: 'Inter', sans-serif;
     }
     .status-badge i {
       color: #555;
-      font-size: 0.9rem;
+      font-size: 0.8rem;
     }
     .status-desc {
       color: #666;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       font-weight: 300;
-      margin: 0;
-      padding-right: 0.5rem;
+      margin: 0.3rem 0 0;
+      font-family: 'Inter', sans-serif;
     }
 
-    /* دکمه غیرفعال */
     .purchase-btn {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      padding: 0.9rem 2.5rem;
+      gap: 8px;
+      padding: 0.7rem 2rem;
       background: #fff;
       color: #0a0a0a;
       border: none;
       border-radius: 4px;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       font-weight: 700;
-      font-family: 'Estedad', 'Ardakan', sans-serif;
+      font-family: 'Inter', 'Estedad', 'Ardakan', sans-serif;
       cursor: pointer;
-      transition: 0.4s;
-      letter-spacing: 1px;
+      transition: 0.2s;
+      letter-spacing: 0.5px;
     }
     .purchase-btn:hover {
       background: #ddd;
       transform: scale(1.02);
-      box-shadow: 0 0 40px rgba(255,255,255,0.05);
     }
     .purchase-btn i {
-      font-size: 1rem;
+      font-size: 0.9rem;
     }
     .purchase-btn.disabled {
       background: transparent;
       color: #666;
       border: 1px solid #222;
       cursor: not-allowed;
-      opacity: 0.7;
+      opacity: 0.6;
       pointer-events: none;
     }
     .purchase-btn.disabled i {
@@ -959,7 +957,6 @@
     .purchase-btn.disabled:hover {
       background: transparent;
       transform: none;
-      box-shadow: none;
     }
 
     /* ========================================== */
@@ -1266,18 +1263,19 @@
       .search-page .results-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
       
       .purchase-body {
-        grid-template-columns: 1fr;
-        gap: 1.2rem;
+        flex-direction: column;
+        align-items: center;
       }
       .purchase-cover {
+        flex: 0 0 auto;
+        width: 100%;
         max-width: 280px;
-        margin: 0 auto;
+      }
+      .purchase-info {
+        width: 100%;
       }
       .purchase-info h3 {
-        font-size: 1.3rem;
-      }
-      .purchase-price .price {
-        font-size: 1.5rem;
+        font-size: 1.1rem;
       }
     }
     @media (max-width: 480px) {
@@ -1293,10 +1291,7 @@
       .search-page .search-box input { font-size: 0.9rem; padding: 0.8rem 1.2rem 0.8rem 2.5rem; }
       
       .purchase-card {
-        padding: 1.2rem;
-      }
-      .purchase-cover {
-        max-width: 100%;
+        padding: 1rem;
       }
       .purchase-header {
         flex-direction: column;
@@ -1456,7 +1451,7 @@
   </div>
 
   <!-- ========================================== -->
-  <!-- ===== صفحه اختصاصی بازی (با کارت به‌زودی) ===== -->
+  <!-- ===== صفحه اختصاصی بازی (با کارت حرفه‌ای) ===== -->
   <!-- ========================================== -->
   <div class="page" id="pageDetail">
     <div class="detail-hero">
@@ -1487,7 +1482,7 @@
         بازی با ترکیب گیم‌پلی ریتم‌محور و مبارزات استراتژیک، تجربه‌ای منحصربه‌فرد را برای شما به ارمغان می‌آورد. گرافیک خیره‌کننده، موسیقی متن حماسی و فضای پساآخرالزمانی، شما را به دنیای چرخ‌دنده‌ساکت می‌برد.
       </div>
 
-      <!-- ===== کارت خرید (به‌زودی) ===== -->
+      <!-- ===== کارت خرید حرفه‌ای (استیم-استایل) ===== -->
       <div class="purchase-card">
         <div class="purchase-header">
           <div class="purchase-logo">ZER0X <span>GAME</span></div>
@@ -1775,4 +1770,4 @@
   </script>
 
 </body>
-      </html>
+  </html>
