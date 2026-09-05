@@ -58,7 +58,8 @@
     .detail-hero-bg,
     .gallery-grid img,
     .result-card .card-img img,
-    .game-card .card-img img {
+    .game-card .card-img img,
+    .purchase-cover img {
       -webkit-user-drag: none;
       user-drag: none;
       -webkit-user-select: none;
@@ -96,6 +97,10 @@
     @keyframes slideInRightMenu {
       from { opacity: 0; transform: translateX(50px); }
       to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 20px rgba(255,255,255,0.02); }
+      50% { box-shadow: 0 0 40px rgba(255,255,255,0.06); }
     }
 
     /* ========================================== */
@@ -782,7 +787,183 @@
     }
 
     /* ========================================== */
-    /* ===== صفحه اختصاصی بازی ===== */
+    /* ===== کارت خرید استیم-استایل (به‌زودی) ===== */
+    /* ========================================== */
+    .purchase-card {
+      background: #0f0f0f;
+      border: 1px solid #1a1a1a;
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 2rem 0;
+      transition: 0.4s;
+      animation: scaleIn 0.8s ease;
+    }
+    .purchase-card:hover {
+      border-color: #333;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+    }
+
+    .purchase-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #181818;
+    }
+    .purchase-logo {
+      font-size: 1rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      color: #fff;
+      font-family: 'Estedad', 'Ardakan', sans-serif;
+    }
+    .purchase-logo span {
+      color: #555;
+      font-weight: 300;
+    }
+    .purchase-badge {
+      font-size: 0.7rem;
+      color: #666;
+      border: 1px solid #222;
+      padding: 0.2rem 1rem;
+      border-radius: 20px;
+      letter-spacing: 1px;
+    }
+
+    .purchase-body {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+    .purchase-cover {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #1a1a1a;
+    }
+    .purchase-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .purchase-info h3 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #fff;
+      font-family: 'Estedad', 'Ardakan', sans-serif;
+      margin-bottom: 0.3rem;
+    }
+    .purchase-desc {
+      color: #888;
+      font-size: 0.9rem;
+      font-weight: 300;
+      margin-bottom: 1.2rem;
+      line-height: 1.8;
+    }
+
+    .purchase-meta {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+    .purchase-meta span {
+      color: #666;
+      font-size: 0.8rem;
+      font-weight: 300;
+    }
+    .purchase-meta i {
+      margin-left: 4px;
+      color: #444;
+    }
+
+    /* وضعیت به‌زودی */
+    .purchase-status {
+      margin: 1rem 0 1.2rem;
+      padding: 1rem 1.2rem;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid #1a1a1a;
+      border-radius: 8px;
+      transition: 0.4s;
+    }
+    .purchase-status:hover {
+      border-color: #333;
+      background: rgba(255, 255, 255, 0.03);
+    }
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0.3rem 1.2rem;
+      border: 1px solid #333;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      color: #aaa;
+      letter-spacing: 1px;
+      background: rgba(255, 255, 255, 0.02);
+      backdrop-filter: blur(4px);
+      margin-bottom: 0.5rem;
+    }
+    .status-badge i {
+      color: #555;
+      font-size: 0.9rem;
+    }
+    .status-desc {
+      color: #666;
+      font-size: 0.8rem;
+      font-weight: 300;
+      margin: 0;
+      padding-right: 0.5rem;
+    }
+
+    /* دکمه غیرفعال */
+    .purchase-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0.9rem 2.5rem;
+      background: #fff;
+      color: #0a0a0a;
+      border: none;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      font-family: 'Estedad', 'Ardakan', sans-serif;
+      cursor: pointer;
+      transition: 0.4s;
+      letter-spacing: 1px;
+    }
+    .purchase-btn:hover {
+      background: #ddd;
+      transform: scale(1.02);
+      box-shadow: 0 0 40px rgba(255,255,255,0.05);
+    }
+    .purchase-btn i {
+      font-size: 1rem;
+    }
+    .purchase-btn.disabled {
+      background: transparent;
+      color: #666;
+      border: 1px solid #222;
+      cursor: not-allowed;
+      opacity: 0.7;
+      pointer-events: none;
+    }
+    .purchase-btn.disabled i {
+      color: #444;
+    }
+    .purchase-btn.disabled:hover {
+      background: transparent;
+      transform: none;
+      box-shadow: none;
+    }
+
+    /* ========================================== */
+    /* ===== صفحه اختصاصی ===== */
     /* ========================================== */
     .detail-hero {
       position: relative;
@@ -1083,6 +1264,21 @@
       .search-page .search-header h1 { font-size: 2rem; }
       .search-page .search-box input { font-size: 1rem; padding: 1rem 1.5rem 1rem 3rem; }
       .search-page .results-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+      
+      .purchase-body {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+      .purchase-cover {
+        max-width: 280px;
+        margin: 0 auto;
+      }
+      .purchase-info h3 {
+        font-size: 1.3rem;
+      }
+      .purchase-price .price {
+        font-size: 1.5rem;
+      }
     }
     @media (max-width: 480px) {
       .detail-info-box { grid-template-columns: 1fr; }
@@ -1095,6 +1291,22 @@
       .search-page .results-grid { grid-template-columns: 1fr; }
       .search-page .search-header h1 { font-size: 1.6rem; }
       .search-page .search-box input { font-size: 0.9rem; padding: 0.8rem 1.2rem 0.8rem 2.5rem; }
+      
+      .purchase-card {
+        padding: 1.2rem;
+      }
+      .purchase-cover {
+        max-width: 100%;
+      }
+      .purchase-header {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-start;
+      }
+      .purchase-btn {
+        width: 100%;
+        justify-content: center;
+      }
     }
   </style>
 </head>
@@ -1243,7 +1455,9 @@
     </div>
   </div>
 
-  <!-- ===== صفحه اختصاصی بازی ===== -->
+  <!-- ========================================== -->
+  <!-- ===== صفحه اختصاصی بازی (با کارت به‌زودی) ===== -->
+  <!-- ========================================== -->
   <div class="page" id="pageDetail">
     <div class="detail-hero">
       <div class="detail-hero-bg"></div>
@@ -1271,6 +1485,43 @@
         داستان بازی در دنیایی پس از سقوط تمدن روایت می‌شود. شما در نقش یک بازمانده تنها، باید در میان ویرانه‌های یک شهر صنعتی، راز چرخ‌دنده‌های خاموش را کشف کنید. هر تصمیم شما مسیر داستان را تغییر می‌دهد و به یکی از ۳ پایان مختلف ختم می‌شود.
 
         بازی با ترکیب گیم‌پلی ریتم‌محور و مبارزات استراتژیک، تجربه‌ای منحصربه‌فرد را برای شما به ارمغان می‌آورد. گرافیک خیره‌کننده، موسیقی متن حماسی و فضای پساآخرالزمانی، شما را به دنیای چرخ‌دنده‌ساکت می‌برد.
+      </div>
+
+      <!-- ===== کارت خرید (به‌زودی) ===== -->
+      <div class="purchase-card">
+        <div class="purchase-header">
+          <div class="purchase-logo">ZER0X <span>GAME</span></div>
+          <div class="purchase-badge">به‌زودی</div>
+        </div>
+        
+        <div class="purchase-body">
+          <div class="purchase-cover">
+            <img src="https://uploadkon.ir/uploads/713431_26Negar-1788164380627.jpg" alt="SilentGears" />
+          </div>
+          <div class="purchase-info">
+            <h3>SilentGears</h3>
+            <p class="purchase-desc">یک بازی اکشن-ماجرایی ریتم‌محور در دنیای پساآخرالزمانی</p>
+            
+            <div class="purchase-meta">
+              <span><i class="fas fa-tag"></i> اکشن-ماجرایی</span>
+              <span><i class="fas fa-desktop"></i> PC</span>
+              <span><i class="fas fa-mobile-alt"></i> اندروید</span>
+            </div>
+            
+            <div class="purchase-status">
+              <div class="status-badge">
+                <i class="fas fa-clock"></i>
+                <span>به‌زودی</span>
+              </div>
+              <p class="status-desc">این بازی در حال توسعه است و به‌زودی منتشر می‌شود.</p>
+            </div>
+            
+            <button class="purchase-btn disabled">
+              <i class="fas fa-hourglass-half"></i>
+              به‌زودی
+            </button>
+          </div>
+        </div>
       </div>
 
       <div class="trailer-section">
@@ -1359,10 +1610,8 @@
 
     // ===== ناوبری با تغییر هش =====
     function navigateTo(page) {
-      // مخفی کردن همه صفحات
       document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
       
-      // نمایش صفحه مورد نظر
       if (page === 'home') {
         document.getElementById('pageHome').classList.add('active');
         window.location.hash = 'home';
@@ -1379,7 +1628,6 @@
         window.location.hash = 'game-silentgears';
       }
 
-      // آپدیت منو
       document.querySelectorAll('.nav a').forEach(a => a.classList.remove('active'));
       const navMap = { 'home': 0, 'about': 2 };
       if (page === 'home' || page === 'about') {
@@ -1525,5 +1773,6 @@
       }
     });
   </script>
+
 </body>
-            </html>
+      </html>
