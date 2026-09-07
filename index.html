@@ -103,6 +103,31 @@
       to { transform: rotate(360deg); }
     }
 
+    /* کلاس‌های انیمیشن */
+    .animate-fade-up {
+      animation: fadeUp 0.8s ease forwards;
+      opacity: 0;
+    }
+    .animate-fade-down {
+      animation: fadeDown 0.6s ease forwards;
+      opacity: 0;
+    }
+    .animate-scale-in {
+      animation: scaleIn 0.6s ease forwards;
+      opacity: 0;
+    }
+    .animate-slide-right {
+      animation: slideInRight 0.8s ease forwards;
+      opacity: 0;
+    }
+
+    /* تاخیرها */
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
+    .delay-5 { animation-delay: 0.5s; }
+
     /* ========================================== */
     /* ===== HEADER ===== */
     /* ========================================== */
@@ -989,7 +1014,7 @@
     }
 
     /* ========================================== */
-    /* ===== صفحه فارسی‌ساز ===== */
+    /* ===== صفحه فارسی‌ساز (با انیمیشن) ===== */
     /* ========================================== */
     .persianizer-page {
       display: flex;
@@ -999,6 +1024,31 @@
       min-height: 70vh;
       text-align: center;
       padding: 2rem;
+    }
+    .persianizer-page .back-link {
+      display: inline-flex;
+      align-items: center;
+      color: #555;
+      font-size: 0.85rem;
+      cursor: pointer;
+      gap: 8px;
+      border-bottom: 1px solid #222;
+      padding-bottom: 6px;
+      margin-bottom: 2rem;
+      transition: 0.3s;
+      font-weight: 300;
+      align-self: flex-start;
+    }
+    .persianizer-page .back-link:hover {
+      color: #fff;
+      border-color: #555;
+      transform: translateX(-5px);
+    }
+    .persianizer-page .back-link i {
+      transition: 0.3s;
+    }
+    .persianizer-page .back-link:hover i {
+      transform: translateX(-5px);
     }
     .persianizer-page .icon {
       font-size: 4rem;
@@ -1550,11 +1600,14 @@
   </div>
 
   <!-- ========================================== -->
-  <!-- ===== صفحه فارسی‌ساز ===== -->
+  <!-- ===== صفحه فارسی‌ساز (با انیمیشن) ===== -->
   <!-- ========================================== -->
   <div class="page" id="pagePersianizer">
     <div class="container">
-      <div class="persianizer-page">
+      <div class="persianizer-page animate-fade-up">
+        <a href="#home" class="back-link" onclick="navigateTo('home')">
+          <i class="fas fa-arrow-right"></i> بازگشت
+        </a>
         <i class="fas fa-cog icon"></i>
         <h1>فارسی‌ساز</h1>
         <p>این بخش در دست توسعه است و به‌زودی امکانات فارسی‌سازی برای بازی‌ها اضافه می‌شود.</p>
@@ -1892,4 +1945,4 @@
   </script>
 
 </body>
-      </html>
+  </html>
