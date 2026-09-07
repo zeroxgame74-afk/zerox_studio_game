@@ -10,10 +10,11 @@
   <link rel="icon" type="image/png" sizes="16x16" href="https://uploadkon.ir/uploads/464903_26Negar-1788437644174.png" />
   <link rel="apple-touch-icon" href="https://uploadkon.ir/uploads/464903_26Negar-1788437644174.png" />
 
-  <!-- فونت‌ها -->
+  <!-- ===== فونت‌ها ===== -->
   <link href="https://fonts.googleapis.com/css2?family=Estedad:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Ardakan:wght@400;500;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
   <style>
@@ -37,10 +38,10 @@
     ::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
     ::-webkit-scrollbar-thumb:hover { background: #555; }
     a { text-decoration: none; color: inherit; }
-    .container { 
-      max-width: 1400px; 
-      margin: 0 auto; 
-      padding: 0 2rem; 
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
       width: 100%;
       overflow: hidden;
     }
@@ -54,7 +55,7 @@
       -webkit-touch-callout: none;
     }
     .card-img img,
-    .hero-bg,
+    .hero-slide-bg,
     .detail-hero-bg,
     .gallery-grid img,
     .result-card .card-img img,
@@ -67,9 +68,9 @@
       pointer-events: none;
     }
 
-    /* ========================================== */
-    /* ===== انیمیشن‌ها ===== */
-    /* ========================================== */
+    /* ==================================================
+       انیمیشن‌ها
+    ================================================== */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(40px); }
       to { opacity: 1; transform: translateY(0); }
@@ -103,7 +104,6 @@
       to { transform: rotate(360deg); }
     }
 
-    /* کلاس‌های انیمیشن */
     .animate-fade-up {
       animation: fadeUp 0.8s ease forwards;
       opacity: 0;
@@ -120,17 +120,15 @@
       animation: slideInRight 0.8s ease forwards;
       opacity: 0;
     }
-
-    /* تاخیرها */
     .delay-1 { animation-delay: 0.1s; }
     .delay-2 { animation-delay: 0.2s; }
     .delay-3 { animation-delay: 0.3s; }
     .delay-4 { animation-delay: 0.4s; }
     .delay-5 { animation-delay: 0.5s; }
 
-    /* ========================================== */
-    /* ===== HEADER ===== */
-    /* ========================================== */
+    /* ==================================================
+       HEADER
+    ================================================== */
     .header {
       display: flex;
       justify-content: space-between;
@@ -193,14 +191,13 @@
       background-size: 200% auto;
       transition: 0.4s;
     }
-    .nav a:hover::after { 
+    .nav a:hover::after {
       width: 100%;
       animation: shimmer 1.5s linear infinite;
     }
     .nav a:hover { color: #fff; transform: translateY(-2px); }
     .nav a.active { color: #fff; }
     .nav a.active::after { width: 100%; }
-    
     .nav a .dev-badge {
       font-size: 0.5rem;
       background: #1a1a1a;
@@ -224,15 +221,15 @@
       cursor: pointer;
       transition: 0.4s;
     }
-    .header-actions i:hover { 
-      color: #fff; 
+    .header-actions i:hover {
+      color: #fff;
       transform: scale(1.2) rotate(15deg);
     }
     .menu-mobile { display: none; }
 
-    /* ========================================== */
-    /* ===== منو موبایل ===== */
-    /* ========================================== */
+    /* ==================================================
+       منوی موبایل
+    ================================================== */
     .mobile-menu-overlay {
       position: fixed;
       inset: 0;
@@ -246,9 +243,7 @@
       animation: fadeIn 0.3s ease;
       padding: 2rem;
     }
-    .mobile-menu-overlay.active {
-      display: flex;
-    }
+    .mobile-menu-overlay.active { display: flex; }
 
     .mobile-menu-content {
       width: 100%;
@@ -257,7 +252,6 @@
       text-align: center;
       position: relative;
     }
-
     .mobile-menu-content .close-menu {
       position: absolute;
       top: 0;
@@ -274,7 +268,6 @@
       color: #fff;
       transform: rotate(90deg);
     }
-
     .mobile-menu-content .mobile-logo {
       font-size: 2.2rem;
       font-weight: 900;
@@ -283,11 +276,7 @@
       letter-spacing: 3px;
       margin-bottom: 3rem;
     }
-    .mobile-menu-content .mobile-logo span {
-      color: #555;
-      font-weight: 300;
-    }
-
+    .mobile-menu-content .mobile-logo span { color: #555; font-weight: 300; }
     .mobile-menu-content .mobile-nav {
       display: flex;
       flex-direction: column;
@@ -312,7 +301,6 @@
     .mobile-menu-content .mobile-nav a:nth-child(2) { animation-delay: 0.1s; }
     .mobile-menu-content .mobile-nav a:nth-child(3) { animation-delay: 0.15s; }
     .mobile-menu-content .mobile-nav a:nth-child(4) { animation-delay: 0.2s; }
-
     .mobile-menu-content .mobile-nav a i {
       font-size: 1.2rem;
       color: #444;
@@ -328,12 +316,8 @@
       color: #888;
       transform: scale(1.2);
     }
-    .mobile-menu-content .mobile-nav a.active {
-      color: #fff;
-    }
-    .mobile-menu-content .mobile-nav a.active i {
-      color: #888;
-    }
+    .mobile-menu-content .mobile-nav a.active { color: #fff; }
+    .mobile-menu-content .mobile-nav a.active i { color: #888; }
     .mobile-menu-content .mobile-nav a .dev-badge-mobile {
       font-size: 0.55rem;
       background: #1a1a1a;
@@ -342,7 +326,6 @@
       border-radius: 12px;
       border: 1px solid #222;
     }
-
     .mobile-menu-content .mobile-social {
       margin-top: 3rem;
       display: flex;
@@ -368,28 +351,45 @@
     .page { display: none; padding-top: 70px; }
     .page.active { display: block; }
 
-    /* ========================================== */
-    /* ===== HERO ===== */
-    /* ========================================== */
-    .hero {
+    /* ==================================================
+       HERO SLIDER (صفحه اصلی)
+    ================================================== */
+    .hero-slider {
       position: relative;
+      min-height: 88vh;
+      overflow: hidden;
+      background: #0a0a0a;
+    }
+    .hero-slide {
+      position: absolute;
+      inset: 0;
       min-height: 88vh;
       display: flex;
       align-items: flex-end;
       padding: 4rem 2rem 3rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.8s ease, visibility 0.8s ease;
       overflow: hidden;
     }
-    .hero-bg {
+    .hero-slide.active {
+      opacity: 1;
+      visibility: visible;
+      z-index: 2;
+    }
+    .hero-slide-bg {
       position: absolute;
       inset: 0;
-      background: url('https://uploadkon.ir/uploads/713431_26Negar-1788164380627.jpg') center/cover no-repeat;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
       transform: scale(1.02);
       filter: brightness(0.3) contrast(1.2) saturate(0.8);
       will-change: transform;
       z-index: 0;
       pointer-events: none;
     }
-    .hero-bg::after {
+    .hero-slide-bg::after {
       content: '';
       position: absolute;
       inset: 0;
@@ -397,7 +397,7 @@
     }
     .hero-content {
       position: relative;
-      z-index: 2;
+      z-index: 3;
       max-width: 720px;
       padding-bottom: 2rem;
     }
@@ -408,8 +408,10 @@
       color: #555;
       margin-bottom: 0.5rem;
       font-weight: 300;
-      animation: fadeUp 1s ease forwards;
       opacity: 0;
+    }
+    .hero-slide.active .hero-content .game-tag {
+      animation: fadeUp 1s ease 0.1s forwards;
     }
     .hero-content h1 {
       font-size: 4.8rem;
@@ -419,16 +421,20 @@
       margin: 0.5rem 0 0.2rem;
       letter-spacing: -2px;
       font-family: 'Estedad', 'Ardakan', sans-serif;
-      animation: fadeUp 1.2s ease forwards;
       opacity: 0;
+    }
+    .hero-slide.active .hero-content h1 {
+      animation: fadeUp 1.2s ease 0.2s forwards;
     }
     .hero-content .sub-title {
       font-size: 1.3rem;
       font-weight: 300;
       color: #888;
       margin-bottom: 0.6rem;
-      animation: fadeUp 1.4s ease forwards;
       opacity: 0;
+    }
+    .hero-slide.active .hero-content .sub-title {
+      animation: fadeUp 1.4s ease 0.3s forwards;
     }
     .hero-content .meta {
       display: flex;
@@ -438,13 +444,15 @@
       margin: 0.8rem 0 2rem;
       flex-wrap: wrap;
       font-weight: 300;
-      animation: fadeUp 1.6s ease forwards;
       opacity: 0;
     }
+    .hero-slide.active .hero-content .meta {
+      animation: fadeUp 1.6s ease 0.4s forwards;
+    }
     .hero-content .meta i { margin-left: 0.4rem; color: #444; }
-    .hero-content .btn-ghost {
-      animation: fadeUp 1.8s ease forwards;
-      opacity: 0;
+    .hero-content .btn-ghost { opacity: 0; }
+    .hero-slide.active .hero-content .btn-ghost {
+      animation: fadeUp 1.8s ease 0.5s forwards;
     }
 
     .btn-ghost {
@@ -478,12 +486,37 @@
       transform: translateY(-3px) scale(1.02);
     }
 
-    /* ========================================== */
-    /* ===== بخش بازی‌ها ===== */
-    /* ========================================== */
-    #games-section {
-      scroll-margin-top: 80px;
+    /* ===== کنترل اسلایدر ===== */
+    .hero-slider-controls {
+      position: absolute;
+      bottom: 35px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 20;
+      display: flex;
+      gap: 8px;
+      align-items: center;
     }
+    .hero-slider-dot {
+      width: 28px;
+      height: 3px;
+      border: none;
+      outline: none;
+      padding: 0;
+      background: #333;
+      cursor: pointer;
+      transition: 0.4s;
+    }
+    .hero-slider-dot:hover { background: #666; }
+    .hero-slider-dot.active {
+      width: 50px;
+      background: #fff;
+    }
+
+    /* ==================================================
+       بخش بازی‌ها
+    ================================================== */
+    #games-section { scroll-margin-top: 80px; }
     .section-title {
       font-size: 2rem;
       font-weight: 800;
@@ -584,9 +617,9 @@
       letter-spacing: 1px;
     }
 
-    /* ========================================== */
-    /* ===== درباره ما ===== */
-    /* ========================================== */
+    /* ==================================================
+       درباره ما
+    ================================================== */
     .about-page {
       padding: 4rem 0;
       max-width: 800px;
@@ -647,9 +680,9 @@
       font-family: 'Inter', 'Estedad', 'Ardakan', sans-serif;
     }
 
-    /* ========================================== */
-    /* ===== صفحه جستجو ===== */
-    /* ========================================== */
+    /* ==================================================
+       صفحه جستجو
+    ================================================== */
     .search-page {
       padding: 4rem 0 5rem;
       min-height: 80vh;
@@ -658,10 +691,7 @@
       align-items: center;
       text-align: center;
     }
-
-    .search-page .search-header {
-      margin-bottom: 2.5rem;
-    }
+    .search-page .search-header { margin-bottom: 2.5rem; }
     .search-page .search-header h1 {
       font-size: 2.8rem;
       font-weight: 900;
@@ -675,7 +705,6 @@
       font-weight: 300;
       margin-top: 0.3rem;
     }
-
     .search-page .search-box {
       position: relative;
       width: 100%;
@@ -702,10 +731,7 @@
       box-shadow: 0 0 50px rgba(255,255,255,0.02);
       transform: scale(1.02);
     }
-    .search-page .search-box input::placeholder {
-      color: #333;
-      font-weight: 300;
-    }
+    .search-page .search-box input::placeholder { color: #333; font-weight: 300; }
     .search-page .search-box .search-icon {
       position: absolute;
       right: 1.5rem;
@@ -715,21 +741,14 @@
       font-size: 1.2rem;
       transition: 0.3s;
     }
-    .search-page .search-box input:focus ~ .search-icon {
-      color: #888;
-    }
-
+    .search-page .search-box input:focus ~ .search-icon { color: #888; }
     .search-page .results-count {
       color: #555;
       font-size: 0.85rem;
       font-weight: 300;
       margin-bottom: 1.5rem;
     }
-    .search-page .results-count span {
-      color: #888;
-      font-weight: 700;
-    }
-
+    .search-page .results-count span { color: #888; font-weight: 700; }
     .search-page .search-placeholder {
       grid-column: 1/-1;
       text-align: center;
@@ -742,11 +761,7 @@
       display: block;
       margin-bottom: 1rem;
     }
-    .search-page .search-placeholder p {
-      font-weight: 300;
-      font-size: 1rem;
-    }
-
+    .search-page .search-placeholder p { font-weight: 300; font-size: 1rem; }
     .search-page .results-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -810,7 +825,6 @@
       font-size: 0.6rem;
       color: #666;
     }
-
     .search-page .not-found {
       grid-column: 1/-1;
       text-align: center;
@@ -836,9 +850,9 @@
       font-size: 0.95rem;
     }
 
-    /* ========================================== */
-    /* ===== کارت خرید استیم-استایل (فونت فارسی) ===== */
-    /* ========================================== */
+    /* ==================================================
+       کارت خرید
+    ================================================== */
     .purchase-card {
       background: #0d0d0d;
       border: 1px solid #1a1a1a;
@@ -852,7 +866,6 @@
       border-color: #333;
       box-shadow: 0 8px 40px rgba(0,0,0,0.8);
     }
-
     .purchase-header {
       display: flex;
       justify-content: space-between;
@@ -868,10 +881,7 @@
       color: #fff;
       font-family: 'Estedad', 'Ardakan', sans-serif;
     }
-    .purchase-logo span {
-      color: #555;
-      font-weight: 300;
-    }
+    .purchase-logo span { color: #555; font-weight: 300; }
     .purchase-badge {
       font-size: 0.65rem;
       color: #666;
@@ -881,7 +891,6 @@
       letter-spacing: 0.5px;
       font-family: 'Estedad', 'Ardakan', sans-serif;
     }
-
     .purchase-body {
       display: flex;
       gap: 1.5rem;
@@ -902,11 +911,7 @@
       object-fit: cover;
       display: block;
     }
-
-    .purchase-info {
-      flex: 1;
-      min-width: 0;
-    }
+    .purchase-info { flex: 1; min-width: 0; }
     .purchase-info h3 {
       font-size: 1.3rem;
       font-weight: 800;
@@ -923,7 +928,6 @@
       line-height: 1.6;
       font-family: 'Estedad', 'Ardakan', sans-serif;
     }
-
     .purchase-meta {
       display: flex;
       gap: 1rem;
@@ -936,12 +940,7 @@
       font-weight: 300;
       font-family: 'Estedad', 'Ardakan', sans-serif;
     }
-    .purchase-meta i {
-      margin-left: 4px;
-      color: #444;
-      font-size: 0.7rem;
-    }
-
+    .purchase-meta i { margin-left: 4px; color: #444; font-size: 0.7rem; }
     .purchase-status {
       margin: 0.8rem 0 1rem;
       padding: 0.8rem 1rem;
@@ -962,10 +961,7 @@
       background: rgba(255,255,255,0.02);
       font-family: 'Estedad', 'Ardakan', sans-serif;
     }
-    .status-badge i {
-      color: #555;
-      font-size: 0.8rem;
-    }
+    .status-badge i { color: #555; font-size: 0.8rem; }
     .status-desc {
       color: #666;
       font-size: 0.75rem;
@@ -973,7 +969,6 @@
       margin: 0.3rem 0 0;
       font-family: 'Estedad', 'Ardakan', sans-serif;
     }
-
     .purchase-btn {
       display: inline-flex;
       align-items: center;
@@ -990,13 +985,8 @@
       transition: 0.2s;
       letter-spacing: 0.5px;
     }
-    .purchase-btn:hover {
-      background: #ddd;
-      transform: scale(1.02);
-    }
-    .purchase-btn i {
-      font-size: 0.9rem;
-    }
+    .purchase-btn:hover { background: #ddd; transform: scale(1.02); }
+    .purchase-btn i { font-size: 0.9rem; }
     .purchase-btn.disabled {
       background: transparent;
       color: #666;
@@ -1005,17 +995,12 @@
       opacity: 0.6;
       pointer-events: none;
     }
-    .purchase-btn.disabled i {
-      color: #444;
-    }
-    .purchase-btn.disabled:hover {
-      background: transparent;
-      transform: none;
-    }
+    .purchase-btn.disabled i { color: #444; }
+    .purchase-btn.disabled:hover { background: transparent; transform: none; }
 
-    /* ========================================== */
-    /* ===== صفحه فارسی‌ساز (با انیمیشن) ===== */
-    /* ========================================== */
+    /* ==================================================
+       صفحه فارسی‌ساز
+    ================================================== */
     .persianizer-page {
       display: flex;
       flex-direction: column;
@@ -1044,12 +1029,8 @@
       border-color: #555;
       transform: translateX(-5px);
     }
-    .persianizer-page .back-link i {
-      transition: 0.3s;
-    }
-    .persianizer-page .back-link:hover i {
-      transform: translateX(-5px);
-    }
+    .persianizer-page .back-link i { transition: 0.3s; }
+    .persianizer-page .back-link:hover i { transform: translateX(-5px); }
     .persianizer-page .icon {
       font-size: 4rem;
       color: #333;
@@ -1079,13 +1060,100 @@
       font-size: 0.8rem;
       letter-spacing: 1px;
     }
-    .persianizer-page .coming-badge i {
-      margin-left: 8px;
+    .persianizer-page .coming-badge i { margin-left: 8px; }
+
+    /* ==================================================
+       اسلایدر فارسی‌ساز
+    ================================================== */
+    .persianizer-slider {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto 3rem;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #1a1a1a;
+      background: #0a0a0a;
+    }
+    .persianizer-slide {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.8s ease, visibility 0.8s ease;
+    }
+    .persianizer-slide.active {
+      opacity: 1;
+      visibility: visible;
+      z-index: 2;
+    }
+    .persianizer-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .persianizer-slide .slide-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .persianizer-slide .slide-text {
+      position: absolute;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 3;
+      color: #fff;
+      text-align: right;
+    }
+    .persianizer-slide .slide-text h3 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      font-family: 'Estedad', 'Ardakan', sans-serif;
+      margin-bottom: 0.3rem;
+    }
+    .persianizer-slide .slide-text p {
+      font-size: 0.9rem;
+      color: #aaa;
+      font-weight: 300;
+    }
+    .persianizer-slider-controls {
+      position: absolute;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .persianizer-slider-controls .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: none;
+      outline: none;
+      padding: 0;
+      background: rgba(255,255,255,0.3);
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .persianizer-slider-controls .dot.active {
+      background: #fff;
+      transform: scale(1.3);
+    }
+    .persianizer-slider-controls .dot:hover {
+      background: rgba(255,255,255,0.6);
     }
 
-    /* ========================================== */
-    /* ===== صفحه اختصاصی ===== */
-    /* ========================================== */
+    /* ==================================================
+       صفحه اختصاصی
+    ================================================== */
     .detail-hero {
       position: relative;
       min-height: 75vh;
@@ -1131,8 +1199,8 @@
       padding-bottom: 6px;
       font-weight: 300;
     }
-    .detail-hero .back-link:hover { 
-      color: #fff; 
+    .detail-hero .back-link:hover {
+      color: #fff;
       border-color: #555;
       transform: translateX(-5px);
     }
@@ -1164,9 +1232,7 @@
       border: 1px solid #181818;
       animation: scaleIn 0.8s ease;
     }
-    .detail-info-box .item {
-      color: #666;
-    }
+    .detail-info-box .item { color: #666; }
     .detail-info-box .item strong {
       color: #fff;
       display: block;
@@ -1182,7 +1248,6 @@
       color: #aaa;
       font-weight: 300;
     }
-
     .detail-body {
       max-width: 1000px;
       margin: 0 auto;
@@ -1277,9 +1342,9 @@
       box-shadow: 0 15px 50px rgba(0,0,0,0.7);
     }
 
-    /* ========================================== */
-    /* ===== FOOTER ===== */
-    /* ========================================== */
+    /* ==================================================
+       FOOTER
+    ================================================== */
     .footer {
       border-top: 1px solid #0f0f0f;
       padding: 2.5rem 2rem;
@@ -1322,7 +1387,6 @@
     }
     .footer-links a:hover { color: #fff; }
     .footer-links a:hover::after { width: 100%; }
-
     .footer-social {
       display: flex;
       gap: 1.2rem;
@@ -1351,7 +1415,6 @@
       transition: 0.3s;
     }
     .footer-social a:hover i { transform: rotate(10deg); }
-
     .footer-copy {
       width: 100%;
       text-align: center;
@@ -1363,15 +1426,16 @@
       font-weight: 300;
     }
 
-    /* ========================================== */
-    /* ===== RESPONSIVE ===== */
-    /* ========================================== */
+    /* ==================================================
+       RESPONSIVE
+    ================================================== */
     @media (max-width: 768px) {
       .nav { display: none; }
       .menu-mobile { display: inline-block; }
       .header { padding: 0.8rem 1.2rem; }
+      .hero-slider { min-height: 70vh; }
+      .hero-slide { min-height: 70vh; padding: 2rem 1rem 2rem; }
       .hero-content h1 { font-size: 2.8rem; }
-      .hero { min-height: 70vh; padding: 2rem 1rem 2rem; }
       .game-grid { grid-template-columns: 1fr; }
       .section-title { font-size: 1.6rem; }
       .detail-hero h1 { font-size: 2.8rem; }
@@ -1385,29 +1449,14 @@
       .search-page .search-header h1 { font-size: 2rem; }
       .search-page .search-box input { font-size: 1rem; padding: 1rem 1.5rem 1rem 3rem; }
       .search-page .results-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
-      
-      .purchase-body {
-        flex-direction: column;
-        align-items: center;
-      }
-      .purchase-cover {
-        flex: 0 0 auto;
-        width: 100%;
-        max-width: 280px;
-      }
-      .purchase-info {
-        width: 100%;
-      }
-      .purchase-info h3 {
-        font-size: 1.1rem;
-      }
-
-      .persianizer-page h1 {
-        font-size: 2.2rem;
-      }
-      .persianizer-page .icon {
-        font-size: 3rem;
-      }
+      .purchase-body { flex-direction: column; align-items: center; }
+      .purchase-cover { flex: 0 0 auto; width: 100%; max-width: 280px; }
+      .purchase-info { width: 100%; }
+      .purchase-info h3 { font-size: 1.1rem; }
+      .persianizer-page h1 { font-size: 2.2rem; }
+      .persianizer-page .icon { font-size: 3rem; }
+      .persianizer-slide .slide-text h3 { font-size: 1.2rem; }
+      .persianizer-slide .slide-text p { font-size: 0.75rem; }
     }
     @media (max-width: 480px) {
       .detail-info-box { grid-template-columns: 1fr; }
@@ -1420,43 +1469,35 @@
       .search-page .results-grid { grid-template-columns: 1fr; }
       .search-page .search-header h1 { font-size: 1.6rem; }
       .search-page .search-box input { font-size: 0.9rem; padding: 0.8rem 1.2rem 0.8rem 2.5rem; }
-      
-      .purchase-card {
-        padding: 1rem;
-      }
-      .purchase-header {
-        flex-direction: column;
-        gap: 0.5rem;
-        align-items: flex-start;
-      }
-      .purchase-btn {
-        width: 100%;
-        justify-content: center;
-      }
-
-      .persianizer-page h1 {
-        font-size: 1.8rem;
-      }
-      .persianizer-page .icon {
-        font-size: 2.5rem;
-      }
-      .persianizer-page p {
-        font-size: 0.95rem;
-      }
+      .purchase-card { padding: 1rem; }
+      .purchase-header { flex-direction: column; gap: 0.5rem; align-items: flex-start; }
+      .purchase-btn { width: 100%; justify-content: center; }
+      .persianizer-page h1 { font-size: 1.8rem; }
+      .persianizer-page .icon { font-size: 2.5rem; }
+      .persianizer-page p { font-size: 0.95rem; }
+      .hero-content h1 { font-size: 2.2rem; }
+      .hero-content .sub-title { font-size: 1rem; }
+      .hero-content .meta { font-size: 0.72rem; gap: 0.8rem; }
+      .hero-slider-controls { bottom: 20px; }
+      .hero-slider-dot { width: 20px; }
+      .hero-slider-dot.active { width: 38px; }
+      .persianizer-slide .slide-text { bottom: 1rem; right: 1rem; }
+      .persianizer-slide .slide-text h3 { font-size: 1rem; }
+      .persianizer-slide .slide-text p { font-size: 0.65rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ===== منو موبایل ===== -->
+  <!-- ==================================================
+       منوی موبایل
+  ================================================== -->
   <div class="mobile-menu-overlay" id="mobileMenu">
     <div class="mobile-menu-content">
       <button class="close-menu" onclick="closeMobileMenu()">
         <i class="fas fa-times"></i>
       </button>
-      
       <div class="mobile-logo">ZER0X <span>GAME</span></div>
-      
       <nav class="mobile-nav">
         <a href="#home" onclick="navigateTo('home'); closeMobileMenu();">
           <i class="fas fa-home"></i> خانه
@@ -1472,7 +1513,6 @@
           <span class="dev-badge-mobile">در دست توسعه</span>
         </a>
       </nav>
-      
       <div class="mobile-social">
         <a href="https://t.me/ZEROX_GAME_STUDIOS" target="_blank"><i class="fab fa-telegram"></i></a>
         <a href="https://www.youtube.com/@Zerox_game_studios" target="_blank"><i class="fab fa-youtube"></i></a>
@@ -1482,7 +1522,9 @@
     </div>
   </div>
 
-  <!-- ===== HEADER ===== -->
+  <!-- ==================================================
+       HEADER
+  ================================================== -->
   <header class="header" id="header">
     <div class="logo animate-fade-down" onclick="navigateTo('home')">ZER0X <span>GAME</span></div>
     <nav class="nav" id="mainNav">
@@ -1500,24 +1542,54 @@
     </div>
   </header>
 
-  <!-- ===== صفحه خانه ===== -->
+  <!-- ==================================================
+       صفحه خانه (با اسلایدر اصلی)
+  ================================================== -->
   <div class="page active" id="pageHome">
-    <section class="hero">
-      <div class="hero-bg"></div>
-      <div class="hero-content">
-        <div class="game-tag"><i class="fas fa-star" style="color:#444; margin-left:6px;"></i> بازی منتخب</div>
-        <h1>SilentGears</h1>
-        <div class="sub-title">چرخ‌دنده‌ساکت</div>
-        <div class="meta">
-          <span><i class="fas fa-tag"></i> اکشن-ماجرایی</span>
-          <span><i class="fas fa-desktop"></i> PC • اندروید</span>
-          <span><i class="fas fa-clock"></i> در دست توسعه</span>
+
+    <!-- ===== اسلایدر اصلی (ترتیب جدید) ===== -->
+    <section class="hero-slider" id="heroSlider">
+
+      <!-- اسلاید ۱: SilentGears (اول) -->
+      <div class="hero-slide active">
+        <div class="hero-slide-bg" style="background-image: url('https://uploadkon.ir/uploads/713431_26Negar-1788164380627.jpg');"></div>
+        <div class="hero-content">
+          <div class="game-tag"><i class="fas fa-star" style="color:#444; margin-left:6px;"></i> بازی منتخب</div>
+          <h1>SilentGears</h1>
+          <div class="sub-title">چرخ‌دنده‌ساکت</div>
+          <div class="meta">
+            <span><i class="fas fa-tag"></i> اکشن-ماجرایی</span>
+            <span><i class="fas fa-desktop"></i> PC • اندروید</span>
+            <span><i class="fas fa-clock"></i> در دست توسعه</span>
+          </div>
+          <a href="#game-silentgears" class="btn-ghost" onclick="navigateTo('detail')">مشاهده بازی <i class="fas fa-arrow-left" style="margin-right:10px;"></i></a>
         </div>
-        <a href="#game-silentgears" class="btn-ghost" onclick="navigateTo('detail')">مشاهده بازی <i class="fas fa-arrow-left" style="margin-right:10px;"></i></a>
+      </div>
+
+      <!-- اسلاید ۲: فارسی‌ساز (دوم) -->
+      <div class="hero-slide">
+        <div class="hero-slide-bg" style="background-image: url('https://cdn.imgurl.ir/uploads/i799534_Negar_1788735668527.webp');"></div>
+        <div class="hero-content">
+          <div class="game-tag"><i class="fas fa-language" style="color:#444; margin-left:6px;"></i> فارسی‌ساز</div>
+          <h1>فارسی‌ساز</h1>
+          <div class="sub-title">تجربه بازی‌ها با زبان فارسی</div>
+          <div class="meta">
+            <span><i class="fas fa-gamepad"></i> فارسی‌سازی بازی‌ها</span>
+            <span><i class="fas fa-language"></i> زبان فارسی</span>
+            <span><i class="fas fa-clock"></i> در دست توسعه</span>
+          </div>
+          <a href="#persianizer" class="btn-ghost" onclick="navigateTo('persianizer')">مشاهده فارسی‌ساز <i class="fas fa-arrow-left" style="margin-right:10px;"></i></a>
+        </div>
+      </div>
+
+      <!-- کنترل اسلایدر -->
+      <div class="hero-slider-controls">
+        <button class="hero-slider-dot active" aria-label="اسلاید SilentGears" onclick="goToHeroSlide(0)"></button>
+        <button class="hero-slider-dot" aria-label="اسلاید فارسی‌ساز" onclick="goToHeroSlide(1)"></button>
       </div>
     </section>
 
-    <!-- ===== بخش بازی‌های ما ===== -->
+    <!-- ===== بازی‌های ما ===== -->
     <div class="container" id="games-section">
       <h2 class="section-title">بازی‌های ما</h2>
       <div class="game-grid">
@@ -1535,7 +1607,7 @@
       </div>
     </div>
 
-    <!-- ===== درباره ما در صفحه اصلی ===== -->
+    <!-- ===== درباره ما ===== -->
     <div class="container" id="about-section">
       <div class="intro-section" style="border-top:1px solid #1a1a1a; padding:3rem 0 4rem; margin-top:1rem;">
         <h2 style="font-size:2.8rem; font-weight:900; font-family:'Estedad','Ardakan',sans-serif; letter-spacing:-1px;">ZER0X GAME</h2>
@@ -1545,89 +1617,97 @@
     </div>
   </div>
 
-  <!-- ===== صفحه درباره ما ===== -->
+  <!-- ==================================================
+       صفحه درباره ما
+  ================================================== -->
   <div class="page" id="pageAbout">
     <div class="container">
       <div class="about-page">
-        <div class="about-header">
-          <h1>درباره Zerox Game</h1>
-        </div>
+        <div class="about-header"><h1>درباره Zerox Game</h1></div>
         <div class="about-content">
           <p>Zerox Game بخش اختصاصی گیمینگ Zerox Studios است؛ جایی که ایده‌ها به تجربه‌های تعاملی تبدیل می‌شوند.</p>
           <p>ما با تمرکز بر ساخت بازی‌های مستقل، تولید محتوای گیمینگ و معرفی آثار ویدیویی فعالیت می‌کنیم و تلاش داریم تجربه‌هایی متفاوت، خلاقانه و به‌یادماندنی خلق کنیم.</p>
           <p>اولین پروژه‌ی بازی‌سازی Zerox Studios، Silent Gears، آغاز مسیر ما در دنیای توسعه‌ی بازی است؛ مسیری که با هدف یادگیری، نوآوری و ساخت آثار مستقل ادامه خواهد داشت.</p>
           <p>در Zerox Game، فقط بازی نمی‌سازیم؛<br />دنیایی می‌سازیم که بازیکن بتواند در آن تجربه کند، کشف کند و لذت ببرد.</p>
-          <div class="about-tagline">
-            ZEROX GAME
-            <span>Play. Create. Beyond Limits.</span>
-          </div>
+          <div class="about-tagline">ZEROX GAME <span>Play. Create. Beyond Limits.</span></div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ===== صفحه جستجو ===== -->
+  <!-- ==================================================
+       صفحه جستجو
+  ================================================== -->
   <div class="page" id="pageSearch">
     <div class="container search-page">
-
       <div class="search-header">
         <h1>جستجوی بازی</h1>
         <div class="sub">نام بازی مورد نظر را پیدا کن</div>
       </div>
-
       <div class="search-box">
-        <input 
-          type="text" 
-          placeholder="مثل: SilentGears ..." 
-          id="searchInput" 
-          oninput="searchGames()" 
-        />
+        <input type="text" placeholder="مثل: SilentGears ..." id="searchInput" oninput="searchGames()" />
         <i class="fas fa-search search-icon"></i>
       </div>
-
-      <div class="results-count">
-        <span id="countNum">۰</span> نتیجه پیدا شد
-      </div>
-
+      <div class="results-count"><span id="countNum">۰</span> نتیجه پیدا شد</div>
       <div class="results-grid" id="resultsGrid">
         <div class="search-placeholder">
           <i class="fas fa-gamepad"></i>
           <p>برای شروع جستجو، نام بازی را وارد کن...</p>
         </div>
       </div>
-
     </div>
   </div>
 
-  <!-- ========================================== -->
-  <!-- ===== صفحه فارسی‌ساز (با انیمیشن) ===== -->
-  <!-- ========================================== -->
+  <!-- ==================================================
+       صفحه فارسی‌ساز (با اسلایدر اختصاصی)
+  ================================================== -->
   <div class="page" id="pagePersianizer">
     <div class="container">
       <div class="persianizer-page animate-fade-up">
         <a href="#home" class="back-link" onclick="navigateTo('home')">
           <i class="fas fa-arrow-right"></i> بازگشت
         </a>
+
+        <!-- ===== اسلایدر فارسی‌ساز ===== -->
+        <div class="persianizer-slider" id="persianizerSlider">
+          <div class="persianizer-slide active">
+            <img src="https://cdn.imgurl.ir/uploads/i799534_Negar_1788735668527.webp" alt="فارسی‌ساز ۱" loading="lazy" decoding="async" />
+            <div class="slide-overlay"></div>
+            <div class="slide-text">
+              <h3>فارسی‌ساز</h3>
+              <p>ترجمه هوشمند بازی‌ها به فارسی</p>
+            </div>
+          </div>
+          <div class="persianizer-slide">
+            <img src="https://uploadkon.ir/uploads/713431_26Negar-1788164380627.jpg" alt="فارسی‌ساز ۲" loading="lazy" decoding="async" />
+            <div class="slide-overlay"></div>
+            <div class="slide-text">
+              <h3>تجربه فارسی</h3>
+              <p>بازی‌ها را به زبان مادری تجربه کن</p>
+            </div>
+          </div>
+          <div class="persianizer-slider-controls">
+            <button class="dot active" onclick="goToPersianizerSlide(0)"></button>
+            <button class="dot" onclick="goToPersianizerSlide(1)"></button>
+          </div>
+        </div>
+
         <i class="fas fa-cog icon"></i>
         <h1>فارسی‌ساز</h1>
-        <p>این بخش در دست توسعه است و به‌زودی امکانات فارسی‌سازی برای بازی‌ها اضافه می‌شود.</p>
-        <div class="coming-badge">
-          <i class="fas fa-clock"></i> به‌زودی
-        </div>
+        <p>این بخش در دست توسعه است و به‌زودی امکانات فارسی‌سازی بازی‌ها به آن اضافه می‌شود.</p>
+        <div class="coming-badge"><i class="fas fa-clock"></i> به‌زودی</div>
       </div>
     </div>
   </div>
 
-  <!-- ========================================== -->
-  <!-- ===== صفحه اختصاصی بازی ===== -->
-  <!-- ========================================== -->
+  <!-- ==================================================
+       صفحه اختصاصی بازی
+  ================================================== -->
   <div class="page" id="pageDetail">
     <div class="detail-hero">
       <div class="detail-hero-bg"></div>
       <div class="detail-content">
-        <a href="#home" class="back-link" onclick="navigateTo('home')">
-          <i class="fas fa-arrow-right"></i> بازگشت
-        </a>
+        <a href="#home" class="back-link" onclick="navigateTo('home')"><i class="fas fa-arrow-right"></i> بازگشت</a>
         <h1>SilentGears</h1>
         <div class="sub">چرخ‌دنده‌ساکت</div>
         <div class="detail-info-box">
@@ -1644,19 +1724,16 @@
     <div class="detail-body container">
       <div class="full-desc">
         🎮 SilentGears | چرخ‌دنده‌ساکت یک بازی اکشن-ماجرایی، نقش‌آفرینی سبک، ریتم‌محور (Rhythm-Based) و پساآخرالزمانی است که توسط Zerox Studios ساخته شده.
-
         داستان بازی در دنیایی پس از سقوط تمدن روایت می‌شود. شما در نقش یک بازمانده تنها، باید در میان ویرانه‌های یک شهر صنعتی، راز چرخ‌دنده‌های خاموش را کشف کنید. هر تصمیم شما مسیر داستان را تغییر می‌دهد و به یکی از ۳ پایان مختلف ختم می‌شود.
-
         بازی با ترکیب گیم‌پلی ریتم‌محور و مبارزات استراتژیک، تجربه‌ای منحصربه‌فرد را برای شما به ارمغان می‌آورد. گرافیک خیره‌کننده، موسیقی متن حماسی و فضای پساآخرالزمانی، شما را به دنیای چرخ‌دنده‌ساکت می‌برد.
       </div>
 
-      <!-- ===== کارت خرید ===== -->
+      <!-- کارت خرید -->
       <div class="purchase-card">
         <div class="purchase-header">
           <div class="purchase-logo">ZER0X <span>GAME</span></div>
           <div class="purchase-badge">به‌زودی</div>
         </div>
-        
         <div class="purchase-body">
           <div class="purchase-cover">
             <img src="https://uploadkon.ir/uploads/713431_26Negar-1788164380627.jpg" alt="SilentGears" />
@@ -1664,25 +1741,16 @@
           <div class="purchase-info">
             <h3>SilentGears</h3>
             <p class="purchase-desc">یک بازی اکشن-ماجرایی ریتم‌محور در دنیای پساآخرالزمانی</p>
-            
             <div class="purchase-meta">
               <span><i class="fas fa-tag"></i> اکشن-ماجرایی</span>
               <span><i class="fas fa-desktop"></i> PC</span>
               <span><i class="fas fa-mobile-alt"></i> اندروید</span>
             </div>
-            
             <div class="purchase-status">
-              <div class="status-badge">
-                <i class="fas fa-clock"></i>
-                <span>به‌زودی</span>
-              </div>
+              <div class="status-badge"><i class="fas fa-clock"></i> <span>به‌زودی</span></div>
               <p class="status-desc">این بازی در حال توسعه است و به‌زودی منتشر می‌شود.</p>
             </div>
-            
-            <button class="purchase-btn disabled">
-              <i class="fas fa-hourglass-half"></i>
-              به‌زودی
-            </button>
+            <button class="purchase-btn disabled"><i class="fas fa-hourglass-half"></i> به‌زودی</button>
           </div>
         </div>
       </div>
@@ -1706,7 +1774,9 @@
     </div>
   </div>
 
-  <!-- ===== FOOTER ===== -->
+  <!-- ==================================================
+       FOOTER
+  ================================================== -->
   <footer class="footer">
     <div class="logo" onclick="navigateTo('home')">ZER0X <span>GAME</span></div>
     <div class="footer-links">
@@ -1715,24 +1785,20 @@
       <a href="#about" onclick="navigateTo('about')">درباره ما</a>
     </div>
     <div class="footer-social">
-      <a href="https://t.me/ZEROX_GAME_STUDIOS" target="_blank" rel="noopener noreferrer" aria-label="تلگرام">
-        <i class="fab fa-telegram"></i>
-      </a>
-      <a href="https://www.youtube.com/@Zerox_game_studios" target="_blank" rel="noopener noreferrer" aria-label="یوتیوب">
-        <i class="fab fa-youtube"></i>
-      </a>
-      <a href="https://www.instagram.com/zerox_game_studios" target="_blank" rel="noopener noreferrer" aria-label="اینستاگرام">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="#" target="_blank" rel="noopener noreferrer" aria-label="توییتر">
-        <i class="fab fa-twitter"></i>
-      </a>
+      <a href="https://t.me/ZEROX_GAME_STUDIOS" target="_blank" rel="noopener noreferrer" aria-label="تلگرام"><i class="fab fa-telegram"></i></a>
+      <a href="https://www.youtube.com/@Zerox_game_studios" target="_blank" rel="noopener noreferrer" aria-label="یوتیوب"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.instagram.com/zerox_game_studios" target="_blank" rel="noopener noreferrer" aria-label="اینستاگرام"><i class="fab fa-instagram"></i></a>
+      <a href="#" aria-label="توییتر"><i class="fab fa-twitter"></i></a>
     </div>
     <div class="footer-copy">© 2026 ZER0X GAME · Create Beyond Limits.</div>
   </footer>
 
+  <!-- ==================================================
+       JAVASCRIPT
+  ================================================== -->
   <script>
-    // ===== جلوگیری از دانلود عکس =====
+
+    /* ===== جلوگیری از دانلود عکس ===== */
     document.addEventListener('contextmenu', function(e) {
       if (e.target.tagName === 'IMG') {
         e.preventDefault();
@@ -1746,38 +1812,102 @@
       }
     });
 
-    // ===== دیتابیس بازی‌ها =====
-    const gamesDB = [
-      { 
-        id: 1,
-        title: 'SilentGears', 
-        persianTitle: 'چرخ‌دنده‌ساکت',
-        slug: 'silentgears',
-        genre: 'اکشن-ماجرایی • نقش‌آفرینی',
-        status: 'در دست توسعه',
-        cover: 'https://uploadkon.ir/uploads/713431_26Negar-1788164380627.jpg',
-        link: 'detail'
-      }
-    ];
+    /* ==================================================
+       HERO SLIDER (صفحه اصلی)
+    ================================================== */
+    let currentHeroSlide = 0;
+    let heroSliderTimer = null;
+    const HERO_SLIDE_TIME = 6000;
 
-    // ===== تابع اسکرول به بخش بازی‌ها =====
+    function goToHeroSlide(index) {
+      const slides = document.querySelectorAll('.hero-slide');
+      const dots = document.querySelectorAll('.hero-slider-dot');
+      if (!slides.length) return;
+      if (index < 0) index = slides.length - 1;
+      if (index >= slides.length) index = 0;
+      slides.forEach(function(slide) { slide.classList.remove('active'); });
+      dots.forEach(function(dot) { dot.classList.remove('active'); });
+      currentHeroSlide = index;
+      slides[currentHeroSlide].classList.add('active');
+      if (dots[currentHeroSlide]) dots[currentHeroSlide].classList.add('active');
+      resetHeroSliderTimer();
+    }
+
+    function nextHeroSlide() {
+      const slides = document.querySelectorAll('.hero-slide');
+      if (!slides.length) return;
+      goToHeroSlide((currentHeroSlide + 1) % slides.length);
+    }
+
+    function resetHeroSliderTimer() {
+      if (heroSliderTimer) clearInterval(heroSliderTimer);
+      heroSliderTimer = setInterval(function() { nextHeroSlide(); }, HERO_SLIDE_TIME);
+    }
+
+    /* ===== شروع اسلایدر اصلی ===== */
+    document.addEventListener('DOMContentLoaded', function() {
+      currentHeroSlide = 0;
+      goToHeroSlide(0);
+    });
+
+    /* ==================================================
+       PERSIANIZER SLIDER (داخل صفحه فارسی‌ساز)
+    ================================================== */
+    let currentPersianizerSlide = 0;
+    let persianizerSliderTimer = null;
+    const PERSIANIZER_SLIDE_TIME = 5000;
+
+    function goToPersianizerSlide(index) {
+      const slides = document.querySelectorAll('.persianizer-slide');
+      const dots = document.querySelectorAll('.persianizer-slider-controls .dot');
+      if (!slides.length) return;
+      if (index < 0) index = slides.length - 1;
+      if (index >= slides.length) index = 0;
+      slides.forEach(function(slide) { slide.classList.remove('active'); });
+      dots.forEach(function(dot) { dot.classList.remove('active'); });
+      currentPersianizerSlide = index;
+      slides[currentPersianizerSlide].classList.add('active');
+      if (dots[currentPersianizerSlide]) dots[currentPersianizerSlide].classList.add('active');
+      resetPersianizerSliderTimer();
+    }
+
+    function nextPersianizerSlide() {
+      const slides = document.querySelectorAll('.persianizer-slide');
+      if (!slides.length) return;
+      goToPersianizerSlide((currentPersianizerSlide + 1) % slides.length);
+    }
+
+    function resetPersianizerSliderTimer() {
+      if (persianizerSliderTimer) clearInterval(persianizerSliderTimer);
+      persianizerSliderTimer = setInterval(function() { nextPersianizerSlide(); }, PERSIANIZER_SLIDE_TIME);
+    }
+
+    /* ===== شروع اسلایدر فارسی‌ساز ===== */
+    document.addEventListener('DOMContentLoaded', function() {
+      currentPersianizerSlide = 0;
+      goToPersianizerSlide(0);
+    });
+
+    /* ==================================================
+       اسکرول به بازی‌ها
+    ================================================== */
     function scrollToGames() {
       navigateTo('home');
-      setTimeout(() => {
+      setTimeout(function() {
         const gamesSection = document.getElementById('games-section');
-        if (gamesSection) {
-          gamesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+        if (gamesSection) gamesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }, 200);
     }
 
-    // ===== ناوبری با تغییر هش =====
+    /* ==================================================
+       ناوبری
+    ================================================== */
     function navigateTo(page) {
-      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-      
+      document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
       if (page === 'home') {
         document.getElementById('pageHome').classList.add('active');
         window.location.hash = 'home';
+        setTimeout(function() { goToHeroSlide(0); }, 100);
       } else if (page === 'about') {
         document.getElementById('pageAbout').classList.add('active');
         window.location.hash = 'about';
@@ -1792,41 +1922,31 @@
       } else if (page === 'persianizer') {
         document.getElementById('pagePersianizer').classList.add('active');
         window.location.hash = 'persianizer';
+        setTimeout(function() { goToPersianizerSlide(0); }, 100);
       }
-
-      // آپدیت منو
-      document.querySelectorAll('.nav a').forEach(a => a.classList.remove('active'));
-      const navMap = { 'home': 0, 'about': 2, 'persianizer': 3 };
+      document.querySelectorAll('.nav a').forEach(function(a) { a.classList.remove('active'); });
+      const navMap = { home: 0, about: 2, persianizer: 3 };
       if (page === 'home' || page === 'about' || page === 'persianizer') {
         const idx = navMap[page];
-        if (idx !== undefined) {
-          document.querySelectorAll('.nav a')[idx].classList.add('active');
-        }
+        const navItems = document.querySelectorAll('.nav a');
+        if (idx !== undefined && navItems[idx]) navItems[idx].classList.add('active');
       }
-
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // ===== لود شدن با هش =====
+    /* ==================================================
+       لود شدن با HASH
+    ================================================== */
     window.addEventListener('load', function() {
       const hash = window.location.hash.replace('#', '');
-      
-      if (hash === 'home' || hash === '') {
-        navigateTo('home');
-      } else if (hash === 'about') {
-        navigateTo('about');
-      } else if (hash === 'search') {
-        navigateTo('search');
-      } else if (hash === 'game-silentgears') {
-        navigateTo('detail');
-      } else if (hash === 'persianizer') {
-        navigateTo('persianizer');
-      } else {
-        navigateTo('home');
-      }
+      if (hash === 'home' || hash === '') navigateTo('home');
+      else if (hash === 'about') navigateTo('about');
+      else if (hash === 'search') navigateTo('search');
+      else if (hash === 'game-silentgears') navigateTo('detail');
+      else if (hash === 'persianizer') navigateTo('persianizer');
+      else navigateTo('home');
     });
 
-    // ===== تغییر هش با کلیک روی لینک‌ها =====
     window.addEventListener('hashchange', function() {
       const hash = window.location.hash.replace('#', '');
       if (hash === 'home') navigateTo('home');
@@ -1836,57 +1956,42 @@
       else if (hash === 'persianizer') navigateTo('persianizer');
     });
 
-    // ===== جستجو =====
+    /* ==================================================
+       جستجو
+    ================================================== */
+    const gamesDB = [
+      { id: 1, title: 'SilentGears', persianTitle: 'چرخ‌دنده‌ساکت', slug: 'silentgears', genre: 'اکشن-ماجرایی • نقش‌آفرینی', status: 'در دست توسعه', cover: 'https://uploadkon.ir/uploads/713431_26Negar-1788164380627.jpg', link: 'detail' }
+    ];
+
     function searchGames() {
       const input = document.getElementById('searchInput');
       const query = input.value.trim().toLowerCase();
       const grid = document.getElementById('resultsGrid');
       const countEl = document.getElementById('countNum');
-
       if (query.length === 0) {
-        grid.innerHTML = `
-          <div class="search-placeholder">
-            <i class="fas fa-gamepad"></i>
-            <p>برای شروع جستجو، نام بازی را وارد کن...</p>
-          </div>
-        `;
+        grid.innerHTML = '<div class="search-placeholder"><i class="fas fa-gamepad"></i><p>برای شروع جستجو، نام بازی را وارد کن...</p></div>';
         countEl.textContent = '۰';
         return;
       }
-
-      const results = gamesDB.filter(g => 
-        g.title.toLowerCase().includes(query) || 
-        g.persianTitle.includes(query)
-      );
-
+      const results = gamesDB.filter(function(g) {
+        return g.title.toLowerCase().includes(query) || g.persianTitle.includes(query);
+      });
       countEl.textContent = results.length;
-
       if (results.length === 0) {
-        grid.innerHTML = `
-          <div class="not-found">
-            <i class="fas fa-gamepad"></i>
-            <h2>هیچ بازی‌ای با این نام پیدا نشد!</h2>
-            <p>کلمه دیگری رو امتحان کن...</p>
-          </div>
-        `;
+        grid.innerHTML = '<div class="not-found"><i class="fas fa-gamepad"></i><h2>هیچ بازی‌ای با این نام پیدا نشد!</h2><p>کلمه دیگری رو امتحان کن...</p></div>';
         return;
       }
-
-      grid.innerHTML = results.map(g => `
-        <div class="result-card" onclick="navigateTo('${g.link}')">
-          <div class="card-img">
-            <img src="${g.cover}" alt="${g.title}" loading="lazy" decoding="async" />
-          </div>
-          <div class="card-body">
-            <h3>${g.title}</h3>
-            <div class="genre">${g.genre}</div>
-            <div class="status"><i class="far fa-clock" style="margin-left:6px;"></i> ${g.status}</div>
-          </div>
-        </div>
-      `).join('');
+      grid.innerHTML = results.map(function(g) {
+        return '<div class="result-card" onclick="navigateTo(\'' + g.link + '\')">' +
+          '<div class="card-img"><img src="' + g.cover + '" alt="' + g.title + '" loading="lazy" decoding="async" /></div>' +
+          '<div class="card-body"><h3>' + g.title + '</h3><div class="genre">' + g.genre + '</div><div class="status"><i class="far fa-clock" style="margin-left:6px;"></i> ' + g.status + '</div></div>' +
+          '</div>';
+      }).join('');
     }
 
-    // ===== منو موبایل =====
+    /* ==================================================
+       منوی موبایل
+    ================================================== */
     function toggleMobileMenu() {
       const menu = document.getElementById('mobileMenu');
       menu.classList.toggle('active');
@@ -1898,29 +2003,35 @@
       document.body.style.overflow = '';
     }
 
-    // ===== هدر اسکرول =====
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeMobileMenu();
+    });
+
+    /* ==================================================
+       هدر اسکرول
+    ================================================== */
     window.addEventListener('scroll', function() {
       const header = document.getElementById('header');
-      if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
+      if (window.scrollY > 50) header.classList.add('scrolled');
+      else header.classList.remove('scrolled');
     });
 
-    // ===== Parallax =====
+    /* ==================================================
+       پارالاکس برای اسلایدر اصلی
+    ================================================== */
     document.addEventListener('scroll', function() {
-      const heroBg = document.querySelector('.hero-bg');
-      const scrolled = window.scrollY;
+      const heroBg = document.querySelector('.hero-slide.active .hero-slide-bg');
       if (heroBg) {
-        heroBg.style.transform = `scale(1.02) translateY(${scrolled * 0.04}px)`;
+        heroBg.style.transform = 'scale(1.02) translateY(' + (window.scrollY * 0.04) + 'px)';
       }
     });
 
-    // ===== ریسپانسیو منو =====
+    /* ==================================================
+       ریسپانسیو منو
+    ================================================== */
     window.addEventListener('resize', function() {
+      const nav = document.getElementById('mainNav');
       if (window.innerWidth > 768) {
-        const nav = document.getElementById('mainNav');
         nav.style.display = 'flex';
         nav.style.flexDirection = 'row';
         nav.style.position = 'static';
@@ -1929,19 +2040,10 @@
         nav.style.gap = '2.2rem';
         nav.style.borderBottom = 'none';
       } else {
-        const nav = document.getElementById('mainNav');
-        if (!nav.style.display || nav.style.display === 'flex') {
-          nav.style.display = 'none';
-        }
+        nav.style.display = 'none';
       }
     });
 
-    // ===== بستن منو با ESC =====
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        closeMobileMenu();
-      }
-    });
   </script>
 
 </body>
