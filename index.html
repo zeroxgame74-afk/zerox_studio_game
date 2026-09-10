@@ -347,9 +347,6 @@
       overflow: hidden;
       background: #0a0a0a;
     }
-    .hero-slider.persianizer-hero {
-      min-height: 70vh;
-    }
     .hero-slide {
       position: absolute;
       inset: 0;
@@ -361,9 +358,6 @@
       visibility: hidden;
       transition: opacity 0.8s ease, visibility 0.8s ease;
       overflow: hidden;
-    }
-    .hero-slider.persianizer-hero .hero-slide {
-      min-height: 70vh;
     }
     .hero-slide.active {
       opacity: 1;
@@ -1686,9 +1680,7 @@
       .menu-mobile { display: inline-block; }
       .header { padding: 0.8rem 1.2rem; }
       .hero-slider { min-height: 70vh; }
-      .hero-slider.persianizer-hero { min-height: 60vh; }
       .hero-slide { min-height: 70vh; padding: 2rem 1rem 2rem; }
-      .hero-slider.persianizer-hero .hero-slide { min-height: 60vh; }
       .hero-content h1 { font-size: 2.8rem; }
       .game-grid { grid-template-columns: 1fr; }
       .section-title { font-size: 1.6rem; }
@@ -1929,50 +1921,50 @@
        صفحه فارسی‌ساز اختصاصی
   ================================================== -->
   <div class="page animate-fade-up" id="pagePersianizer">
+
+    <!-- اسلایدر فارسی‌ساز - full width مثل صفحه اصلی -->
+    <section class="hero-slider" id="persianizerHeroSlider">
+      <!-- اسلاید ۱: Undertale (اول) -->
+      <div class="hero-slide active">
+        <div class="hero-slide-bg" style="background-image: url('https://cdn.imgurl.ir/uploads/o698207_Negar_1788963395805.webp');"></div>
+        <div class="hero-content">
+          <div class="game-tag"><i class="fas fa-star" style="color:#444; margin-left:6px;"></i> بازی منتخب</div>
+          <h1>Undertale</h1>
+          <div class="sub-title">سفری در دنیای زیرزمین</div>
+          <div class="meta">
+            <span><i class="fas fa-tag"></i> نقش‌آفرینی</span>
+            <span><i class="fas fa-desktop"></i> PC</span>
+            <span><i class="fas fa-clock"></i> ۲۰۱۵</span>
+          </div>
+          <a href="#undertale" class="btn-ghost" onclick="navigateTo('undertale')">مشاهده بازی <i class="fas fa-arrow-left" style="margin-right:10px;"></i></a>
+        </div>
+      </div>
+
+      <!-- اسلاید ۲: فارسی‌ساز (دوم) -->
+      <div class="hero-slide">
+        <div class="hero-slide-bg" style="background-image: url('https://cdn.imgurl.ir/uploads/i799534_Negar_1788735668527.webp');"></div>
+        <div class="hero-content">
+          <div class="game-tag"><i class="fas fa-language" style="color:#444; margin-left:6px;"></i> فارسی‌ساز اختصاصی</div>
+          <h1>فارسی‌ساز</h1>
+          <div class="sub-title">ترجمه هوشمند بازی‌ها به فارسی</div>
+          <div class="meta">
+            <span><i class="fas fa-gamepad"></i> فارسی‌سازی بازی‌ها</span>
+            <span><i class="fas fa-language"></i> زبان فارسی</span>
+            <span><i class="fas fa-clock"></i> در دست توسعه</span>
+          </div>
+          <a href="#persianizer" class="btn-ghost" onclick="navigateTo('persianizer')">مشاهده فارسی‌ساز <i class="fas fa-arrow-left" style="margin-right:10px;"></i></a>
+        </div>
+      </div>
+
+      <!-- کنترل اسلایدر -->
+      <div class="hero-slider-controls">
+        <button class="hero-slider-dot active" onclick="goToPersianizerHeroSlide(0)"></button>
+        <button class="hero-slider-dot" onclick="goToPersianizerHeroSlide(1)"></button>
+      </div>
+    </section>
+
+    <!-- کارت Undertale داخل container -->
     <div class="container">
-
-      <!-- اسلایدر فارسی‌ساز -->
-      <section class="hero-slider persianizer-hero" id="persianizerHeroSlider">
-        <!-- اسلاید ۱: Undertale (اول) -->
-        <div class="hero-slide active">
-          <div class="hero-slide-bg" style="background-image: url('https://cdn.imgurl.ir/uploads/o698207_Negar_1788963395805.webp');"></div>
-          <div class="hero-content">
-            <div class="game-tag"><i class="fas fa-star" style="color:#444; margin-left:6px;"></i> بازی منتخب</div>
-            <h1>Undertale</h1>
-            <div class="sub-title">سفری در دنیای زیرزمین</div>
-            <div class="meta">
-              <span><i class="fas fa-tag"></i> نقش‌آفرینی</span>
-              <span><i class="fas fa-desktop"></i> PC</span>
-              <span><i class="fas fa-clock"></i> ۲۰۱۵</span>
-            </div>
-            <a href="#undertale" class="btn-ghost" onclick="navigateTo('undertale')">مشاهده بازی <i class="fas fa-arrow-left" style="margin-right:10px;"></i></a>
-          </div>
-        </div>
-
-        <!-- اسلاید ۲: فارسی‌ساز (دوم) -->
-        <div class="hero-slide">
-          <div class="hero-slide-bg" style="background-image: url('https://cdn.imgurl.ir/uploads/i799534_Negar_1788735668527.webp');"></div>
-          <div class="hero-content">
-            <div class="game-tag"><i class="fas fa-language" style="color:#444; margin-left:6px;"></i> فارسی‌ساز اختصاصی</div>
-            <h1>فارسی‌ساز</h1>
-            <div class="sub-title">ترجمه هوشمند بازی‌ها به فارسی</div>
-            <div class="meta">
-              <span><i class="fas fa-gamepad"></i> فارسی‌سازی بازی‌ها</span>
-              <span><i class="fas fa-language"></i> زبان فارسی</span>
-              <span><i class="fas fa-clock"></i> در دست توسعه</span>
-            </div>
-            <a href="#persianizer" class="btn-ghost" onclick="navigateTo('persianizer')">مشاهده فارسی‌ساز <i class="fas fa-arrow-left" style="margin-right:10px;"></i></a>
-          </div>
-        </div>
-
-        <!-- کنترل اسلایدر -->
-        <div class="hero-slider-controls">
-          <button class="hero-slider-dot active" onclick="goToPersianizerHeroSlide(0)"></button>
-          <button class="hero-slider-dot" onclick="goToPersianizerHeroSlide(1)"></button>
-        </div>
-      </section>
-
-      <!-- کارت Undertale -->
       <div class="undertale-card-simple" onclick="navigateTo('undertale')">
         <div class="undertale-cover-simple">
           <img src="https://cdn.imgurl.ir/uploads/o698207_Negar_1788963395805.webp" alt="Undertale" />
@@ -1984,8 +1976,8 @@
           <span class="btn-view">مشاهده بازی <i class="fas fa-arrow-left"></i></span>
         </div>
       </div>
-
     </div>
+
   </div>
 
   <!-- ==================================================
