@@ -1503,13 +1503,30 @@
     .dev-credit{display:block;margin:2.2rem auto 0;font:inherit;font-size:.82rem;font-weight:300;color:#555;background:none;border:none;border-top:1px solid #151515;padding:1.2rem 1.5rem 0;cursor:pointer;transition:.3s}
     .dev-credit b{color:#888;font-weight:700;direction:ltr;unicode-bidi:embed;transition:.3s}.dev-credit i{font-size:.65rem;margin-right:4px}
     .dev-credit:hover,.dev-credit:hover b{color:#fff}
-    .dev-av{width:76px;height:76px;margin:0 auto 1rem;border-radius:50%;border:1px solid #2a2a2a;background:#0d0d0d;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1.5rem;color:#fff;letter-spacing:1px;box-shadow:0 0 40px rgba(255,255,255,.06)}
+    .dev-av{width:84px;height:84px;margin:0 auto 1rem;border-radius:50%;overflow:hidden;border:1px solid #2a2a2a;background:#0d0d0d;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1.5rem;color:#fff;letter-spacing:1px;box-shadow:0 0 40px rgba(255,255,255,.06)}
+    .dev-av img{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
     .dev-links{display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.3rem}
     .dev-links a{display:flex;align-items:center;gap:.8rem;padding:.75rem 1rem;border:1px solid #1f1f1f;border-radius:8px;background:rgba(255,255,255,.02);color:#aaa;font-size:.85rem;transition:.25s}
     .dev-links a i:first-child{font-size:1.15rem;color:#666;width:22px;text-align:center;transition:.25s}
     .dev-links a span{margin-right:auto;font-size:.72rem;color:#555;direction:ltr}
     .dev-links a:hover{border-color:#555;color:#fff;transform:translateY(-2px)}.dev-links a:hover i:first-child{color:#fff}
     #devModal .sx-md-act button{flex:1}
+
+    /* ===== جستجو (هم‌استایل کارت‌های سایت) ===== */
+    .sq-clear{display:none;position:absolute;left:1.2rem;top:50%;transform:translateY(-50%);width:28px;height:28px;border-radius:50%;border:none;background:#1a1a1a;color:#888;cursor:pointer;align-items:center;justify-content:center;font-size:.7rem;transition:.2s}
+    .sq-clear:hover{background:#fff;color:#0a0a0a}
+    .search-page .search-box{margin-bottom:1.2rem}
+    .sq-chips{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;width:100%;max-width:600px;margin:0 auto 2rem}
+    .sq-chip{font:inherit;font-size:.72rem;color:#666;background:transparent;border:1px solid #222;border-radius:20px;padding:.25rem 1.1rem;letter-spacing:.5px;cursor:pointer;transition:.3s}
+    .sq-chip:hover{color:#fff;border-color:#555}.sq-chip.on{background:#fff;color:#0a0a0a;border-color:#fff}
+    .search-page .results-count span:first-child{color:#888;font-weight:700}
+    .sq-grid{width:100%;text-align:right}
+    .sq-grid .game-card.sel{border-color:#555;box-shadow:0 20px 60px rgba(0,0,0,.7)}
+    .sq-pn{font-size:.85rem;color:#777;font-weight:300;margin-bottom:.3rem}
+    .sq-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.8rem}.sq-tags span{font-size:.68rem;color:#888;background:#161616;border-radius:3px;padding:.1rem .6rem}
+    .sq-grid mark{background:#fff;color:#0a0a0a;border-radius:3px;padding:0 3px}
+    .sq-none{grid-column:1/-1;text-align:center;padding:3rem 0;color:#555}
+    .sq-none i{font-size:3rem;color:#222;display:block;margin-bottom:1rem}.sq-none h2{color:#888;font-size:1.2rem;font-weight:700;margin-bottom:.3rem}
   </style>
 </head>
 <body>
@@ -1642,19 +1659,16 @@
     <div class="container search-page">
       <div class="search-header">
         <h1>جستجوی بازی</h1>
-        <div class="sub">نام بازی مورد نظر را پیدا کن</div>
+        <div class="sub">اسم بازی، ژانر یا برچسب رو بنویس</div>
       </div>
       <div class="search-box">
-        <input type="text" placeholder="مثل: SilentGears ..." id="searchInput" oninput="searchGames()" />
+        <input type="text" placeholder="مثل: SilentGears ..." id="searchInput" autocomplete="off" oninput="searchGames()" />
         <i class="fas fa-search search-icon"></i>
+        <button type="button" class="sq-clear" id="sqClear" aria-label="پاک کردن"><i class="fas fa-times"></i></button>
       </div>
-      <div class="results-count"><span id="countNum">۰</span> نتیجه پیدا شد</div>
-      <div class="results-grid" id="resultsGrid">
-        <div class="search-placeholder">
-          <i class="fas fa-gamepad"></i>
-          <p>برای شروع جستجو، نام بازی را وارد کن...</p>
-        </div>
-      </div>
+      <div class="sq-chips" id="sqChips"></div>
+      <div class="results-count"><span id="countNum">۰</span> <span id="countLabel">بازی در استودیو</span></div>
+      <div class="game-grid sq-grid" id="resultsGrid"></div>
     </div>
   </div>
 
@@ -1883,34 +1897,60 @@
        جستجو
     ================================================== */
     const gamesDB = [
-      { id: 1, title: 'SilentGears', persianTitle: 'چرخ‌دنده‌ساکت', slug: 'silentgears', genre: 'اکشن-ماجرایی • نقش‌آفرینی', status: 'در دست توسعه', cover: 'https://cdn.imgurl.ir/uploads/k51183_Negar_1788164380627.jpg', link: 'detail' }
+      { id: 1, title: 'SilentGears', persianTitle: 'چرخ‌دنده‌ساکت', slug: 'silentgears', genre: 'اکشن-ماجرایی • نقش‌آفرینی', status: 'در دست توسعه', platform: 'ویندوز', tags: ['ریتم‌محور', 'پساآخرالزمانی', 'اکشن-ماجرایی', 'نقش‌آفرینی', 'تک‌نفره', 'ویندوز'], cover: 'https://cdn.imgurl.ir/uploads/k51183_Negar_1788164380627.jpg', link: 'detail' }
     ];
 
+    function sqNorm(t) { return String(t || '').toLowerCase().replace(/[\u200c\s]+/g, '').replace(/\u064a/g, '\u06cc').replace(/\u0643/g, '\u06a9').replace(/[\u06f0-\u06f9]/g, function (d) { return '\u06f0\u06f1\u06f2\u06f3\u06f4\u06f5\u06f6\u06f7\u06f8\u06f9'.indexOf(d); }); }
+    let sqSel = 0;
+    function sqHi(text, q) { const i = q ? text.toLowerCase().indexOf(q.toLowerCase()) : -1; return i < 0 ? text : text.slice(0, i) + '<mark>' + text.slice(i, i + q.length) + '</mark>' + text.slice(i + q.length); }
+    function sqPaint() { document.querySelectorAll('#resultsGrid .game-card').forEach(function (r, i) { r.classList.toggle('sel', i === sqSel); }); }
     function searchGames() {
-      const input = document.getElementById('searchInput');
-      const query = input.value.trim().toLowerCase();
+      const input = document.getElementById('searchInput'), raw = input.value.trim(), q = sqNorm(raw);
       const grid = document.getElementById('resultsGrid');
-      const countEl = document.getElementById('countNum');
-      if (query.length === 0) {
-        grid.innerHTML = '<div class="search-placeholder"><i class="fas fa-gamepad"></i><p>برای شروع جستجو، نام بازی را وارد کن...</p></div>';
-        countEl.textContent = '۰';
-        return;
-      }
-      const results = gamesDB.filter(function(g) {
-        return g.title.toLowerCase().includes(query) || g.persianTitle.includes(query);
-      });
-      countEl.textContent = results.length;
-      if (results.length === 0) {
-        grid.innerHTML = '<div class="not-found"><i class="fas fa-gamepad"></i><h2>هیچ بازی‌ای با این نام پیدا نشد!</h2><p>کلمه دیگری رو امتحان کن...</p></div>';
-        return;
-      }
-      grid.innerHTML = results.map(function(g) {
-        return '<div class="result-card" onclick="navigateTo(\'' + g.link + '\')">' +
-          '<div class="card-img"><img src="' + g.cover + '" alt="' + g.title + '" loading="lazy" decoding="async" /></div>' +
-          '<div class="card-body"><h3>' + g.title + '</h3><div class="genre">' + g.genre + '</div><div class="status"><i class="far fa-clock" style="margin-left:6px;"></i> ' + g.status + '</div></div>' +
-          '</div>';
+      document.getElementById('sqClear').style.display = raw ? 'flex' : 'none';
+      document.querySelectorAll('.sq-chip').forEach(function (c) { c.classList.toggle('on', !!raw && sqNorm(c.dataset.t) === q); });
+      const list = gamesDB.map(function (g) {
+        let sc = 0;
+        if (!q) sc = 1;
+        else {
+          if (sqNorm(g.title).includes(q) || sqNorm(g.persianTitle).includes(q)) sc += 3;
+          if (g.tags.some(function (t) { return sqNorm(t).includes(q); }) || sqNorm(g.genre).includes(q)) sc += 2;
+          if (sqNorm(g.status + g.platform).includes(q)) sc += 1;
+        }
+        return { g: g, sc: sc };
+      }).filter(function (x) { return x.sc > 0; }).sort(function (a, b) { return b.sc - a.sc; }).map(function (x) { return x.g; });
+      document.getElementById('countNum').textContent = list.length.toLocaleString('fa-IR');
+      document.getElementById('countLabel').textContent = q ? 'نتیجه پیدا شد' : 'بازی در استودیو';
+      sqSel = 0;
+      if (!list.length) { grid.innerHTML = '<div class="sq-none"><i class="fas fa-ghost"></i><h2>چیزی پیدا نشد</h2><p>یه کلمه‌ی دیگه یا یکی از برچسب‌های بالا رو امتحان کن.</p></div>'; return; }
+      grid.innerHTML = list.map(function (g, i) {
+        return '<div class="game-card" style="animation-delay:' + (i * 0.08) + 's" onclick="navigateTo(\'' + g.link + '\')">' +
+          '<div class="card-img"><img src="' + g.cover + '" alt="' + g.title + '" loading="lazy" decoding="async" /><div class="card-overlay"><i class="fas fa-arrow-left"></i></div></div>' +
+          '<div class="card-body"><h3>' + sqHi(g.title, raw) + '</h3><div class="sq-pn">' + sqHi(g.persianTitle, raw) + '</div><div class="genre">' + g.genre + '</div>' +
+          '<div class="sq-tags">' + g.tags.slice(0, 4).map(function (t) { return '<span>' + t + '</span>'; }).join('') + '</div>' +
+          '<div class="status"><i class="far fa-clock" style="margin-left:6px;"></i> ' + g.status + '</div></div></div>';
       }).join('');
+      sqPaint();
     }
+    (function () {
+      const input = document.getElementById('searchInput'), page = document.getElementById('pageSearch');
+      const tags = []; gamesDB.forEach(function (g) { g.tags.forEach(function (t) { if (tags.indexOf(t) < 0) tags.push(t); }); });
+      const chips = document.getElementById('sqChips');
+      chips.innerHTML = tags.map(function (t) { return '<button type="button" class="sq-chip" data-t="' + t + '">' + t + '</button>'; }).join('');
+      chips.onclick = function (e) { const c = e.target.closest('.sq-chip'); if (!c) return; input.value = input.value.trim() === c.dataset.t ? '' : c.dataset.t; searchGames(); input.focus(); };
+      document.getElementById('sqClear').onclick = function () { input.value = ''; searchGames(); input.focus(); };
+      input.addEventListener('keydown', function (e) {
+        const rows = document.querySelectorAll('#resultsGrid .game-card');
+        if (e.key === 'ArrowDown') { e.preventDefault(); sqSel = Math.min(sqSel + 1, rows.length - 1); sqPaint(); }
+        else if (e.key === 'ArrowUp') { e.preventDefault(); sqSel = Math.max(sqSel - 1, 0); sqPaint(); }
+        else if (e.key === 'Enter' && rows[sqSel]) rows[sqSel].click();
+        else if (e.key === 'Escape') { input.value = ''; searchGames(); }
+      });
+      document.addEventListener('keydown', function (e) { if (e.key === '/' && page.classList.contains('active') && document.activeElement !== input) { e.preventDefault(); input.focus(); } });
+      const hints = gamesDB.map(function (g) { return g.title; }).concat(tags); let k = 0;
+      setInterval(function () { if (!input.value && page.classList.contains('active')) input.placeholder = 'مثل: ' + hints[k++ % hints.length] + ' ...'; }, 2400);
+      searchGames();
+    })();
 
     /* ==================================================
        منوی موبایل
@@ -2102,7 +2142,7 @@
     /* ===== مودال سازنده سایت ===== */
     (function () {
       const m = document.createElement('div'); m.className = 'sx-md'; m.id = 'devModal';
-      m.innerHTML = '<div class="sx-md-box"><span class="sx-chip">سازنده سایت</span><div class="dev-av">MH</div><h4 dir="ltr">mohamad hossein ev18</h4><p>طراح و سازنده‌ی این سایت. از اینجا می‌تونی دنبالم کنی:</p>' +
+      m.innerHTML = '<div class="sx-md-box"><span class="sx-chip">سازنده سایت</span><div class="dev-av"><img src="https://cdn.imgurl.ir/uploads/y39152_Negar_1791034551022.jpg" alt="mohamad hossein ev18" /></div><h4 dir="ltr">mohamad hossein ev18</h4><p>طراح و سازنده‌ی این سایت. از اینجا می‌تونی دنبالم کنی:</p>' +
         '<div class="dev-links">' +
         '<a href="https://www.youtube.com/@mohamad_hossein_ev18" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i>یوتیوب<span>@mohamad_hossein_ev18</span></a>' +
         '<a href="https://www.instagram.com/mohamad_hossein_ev18" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i>اینستاگرام<span>@mohamad_hossein_ev18</span></a>' +
